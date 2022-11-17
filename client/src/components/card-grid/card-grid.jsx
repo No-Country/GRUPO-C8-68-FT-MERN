@@ -5,9 +5,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { dataGames } from "../../data";
+export const CardGrid = ({ title, games }) => {
 
-export const CardGrid = ({ title }) => {
+  
+
     const settings = {
         dots: false,
         infinite: false,
@@ -43,17 +44,17 @@ export const CardGrid = ({ title }) => {
         ],
       };
 
-
   return (
     <CardGridContainer>
+
       <CardGridTitle>{title}</CardGridTitle>
         <CardGridSlideshow>
       <Slider {...settings}>
-          {dataGames.map((item) => (
-            <Card
-              title={item.title}
+          {games.map((item) => (
+            <Card key={item.id}
+              title={item.name}
               price={item.price}
-              img={item.linkImg}
+              img={item.background_image}
             />
           ))}
       </Slider>

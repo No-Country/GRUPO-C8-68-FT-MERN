@@ -2,10 +2,11 @@ const express = require('express');
 require('dotenv').config();
 const axios = require('axios');
 const API_KEY = process.env.API_KEY; // '60fb2544d2e0470a9b1dd79552c621da'; //
+const cors = require('cors');
 
 const app = express();
 const PORT = 8080;
-
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,7 +16,7 @@ const gamesUrl = baseUrl + 'games?key=' + API_KEY + options;
 const genresUrl = baseUrl + 'genres?key=' + API_KEY + options;
 const platformsUrl = baseUrl + 'platforms?key=' + API_KEY; // + options;
 
-app.get('/games', async (req, res) => {
+app.get('/games', cors(), async (req, res) => {
   const resp = await axios.get(gamesUrl); // gamesUrl
   const total = resp.data.count;
 
