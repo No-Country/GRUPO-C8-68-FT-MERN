@@ -2,11 +2,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-const users = require('./models/db')
+const users = require('./models/db').users
 
 // Routes
-const routergames = require('./routes/routerGames')
+const routerGames = require('./routes/routerGames')
 const routerVarious = require('./routes/routerVarious')
+const routerHome = require ('./routes/routerHome.js')
 
 const axios = require('axios')
 const API_KEY = process.env.API_KEY // '60fb2544d2e0470a9b1dd79552c621da'; //
@@ -17,8 +18,9 @@ const PORT = process.env.PORT || 8080
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/games', routergames)
-app.use('/', routerVarious)
+app.use('/games', routerGames)
+// app.use('/', routerVarious)
+app.use('/', routerHome)
 
 const baseUrl = 'https://api.rawg.io/api/'
 

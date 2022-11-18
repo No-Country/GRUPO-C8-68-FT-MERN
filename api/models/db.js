@@ -6,6 +6,15 @@ var userSchema = mongoose.Schema({
   created: Date,
 })
 
+var gamesSchema = mongoose.Schema({
+  name: String,
+  sales: Number,
+  fav: Number,
+  review: Array,
+  stars: Array
+})
+
+
 // var gameSchema = mongoose.Schema({
 //   name: String,
 //   image: String,
@@ -17,22 +26,7 @@ var userSchema = mongoose.Schema({
 //   created: Date,
 // });
 
-module.exports = mongoose.model('users', userSchema)
-
-// const User = mongoose.model('userSchema', schema)
-// // const Game = mongoose.model('gameSchema', schema);
-
-// const user = new User({
-//   // Asignamos valores al modelo
-//   user: userFromFront,
-//   pass: passFromFront,
-// })
-
-// user.save(function (err) {
-//   // Grabamos en la DB
-//   if (err) return handleError(err)
-//   // saved!
-// })
+module.exports = {users: mongoose.model('users', userSchema), games: mongoose.model('games', gamesSchema)}
 
 /* mongoose types
 
