@@ -21,8 +21,6 @@ function App() {
     axios.get(URL)
       .then(res => setGames(res.data))
       .catch(err => console.log(err))
-
-      console.log(games)
   }, [])
 
   return (

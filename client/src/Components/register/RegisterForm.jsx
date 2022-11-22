@@ -70,8 +70,8 @@ const RegisterForm = () => {
 
   // SE GUARDAN LOS ESTADOS ACTUALES DE LAS CONTRASEÑAS PARA VERIFICAR SU IGUALDAD MÁS ADELANTE
 
-  const [firstPassword, setFirstPassword] = useState()
-  const [secondPassword, setSecondPassword] = useState()
+  const [firstPassword, setFirstPassword] = useState('')
+  const [secondPassword, setSecondPassword] = useState('')
 
   // PARA VERIFICAR LA LONGITUD DE CONTRASEÑA
 
