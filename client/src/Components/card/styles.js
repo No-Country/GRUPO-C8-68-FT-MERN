@@ -4,7 +4,7 @@ export const CardContainer = styled.div`
   width: 90%;
   max-width: 300px;
   aspect-ratio: 3/4;
-  background: #555;
+  background: #FFFFFF;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -12,8 +12,7 @@ export const CardContainer = styled.div`
   margin: 0 auto;
 `
 export const CardTop = styled.div`
-  position: relative;
-  height: 70%;
+  height: 60%;
   width: 100%;
   img {
     border-radius: 20px 20px 0 0;
@@ -23,13 +22,19 @@ export const CardTop = styled.div`
   }
 `
 export const CardBottom = styled.div`
-  height: 30%;
+  height: 40%;
 `
 
 export const CardTitle = styled.p`
   font-family: 'Inter';
-  font-weight: 400;
-  font-size: 25px;
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 30px;
+height: 40%;
+color: #000000;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (max-width: 768px) {
     font-size: 21px;
   }
@@ -39,21 +44,28 @@ export const CardTitle = styled.p`
 `
 
 export const CardPrice = styled.p`
-  position: absolute;
-  right: 0;
   font-family: 'Inter';
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
-  border-radius: 0 15px 0 15px;
-  display: flex;
-  align-items: center;
-  background-color: yellow;
-  color: black;
+  text-align: center;
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 30px;
+color: #000000;
+height: 30%;
   @media (max-width: 768px) {
     font-size: 14px;
   }
   @media (max-width: 460px) {
     font-size: 12px;
   }
+`
+export const CardPlatformsIcons = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+height: 30%;
+span{
+  color: black;
+}
+
 `

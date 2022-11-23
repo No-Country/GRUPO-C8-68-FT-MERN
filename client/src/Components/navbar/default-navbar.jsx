@@ -41,9 +41,9 @@ export const DefaultNavbar = () => {
           <li className={`hamburger__menu ${menuStatus}`}>
             <ul className='hamburger__menu-links'>
               <li>
-                <a onClick={handleMenuStatus} href="/">
+              <Link onClick={handleMenuStatus} to={'/games'}>
                   <IoGameControllerOutline size="30px" />Games
-                </a>
+              </Link>
               </li>
               <li>
                 <a onClick={handleMenuStatus} href="/">
