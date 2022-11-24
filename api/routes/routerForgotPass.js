@@ -5,6 +5,6 @@ const router = express.Router()
 //Controllers
 const forgotController = require('../controllers/forgotController')
 
-router.get('/', forgotController)
+router.get('/:email', forgotController)
 
 module.exports = router
