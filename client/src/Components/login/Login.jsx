@@ -4,12 +4,10 @@ import RightCheck from '../../IconsSvg/Checks/right-check.svg'
 import GoogleSvg from '../../IconsSvg/GoogleSvg/GoogleSvg.svg'
 import FacebookSvg from '../../IconsSvg/FacebookSvg/FacebookSvg.svg'
 import EyeSlash from '../../IconsSvg/EyeSlash/EyeSlash.svg'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Subtitle, Title, Text, LinkedText, Form, AdvicesContainer, BigButton, MediumButton, MiniButton, SmallSeparator, SeparatorOr, WrapContainer, TitlesContainer } from '../../AppGlobalStyles.js'
 
-const Login = () => {
-
-
+const Login = ({ handleSubmit, submit, register }) => {
 
   const [passwordView, setPasswordView] = useState('password')
 
@@ -74,8 +72,6 @@ const Login = () => {
     xmark: 'hide'
   }
 
-  const navigate = useNavigate()
-
   return (
     <section>
       <TitlesContainer>
@@ -86,9 +82,9 @@ const Login = () => {
         </div>
       </TitlesContainer>
       <Form>
-        <form>
+        <form onSubmit={handleSubmit(submit)}>
           <label htmlFor="email">Email</label>
-          <input onChange={checkEmail} className="email__input-container" id="email" type="email" />
+          <input onChange={checkEmail} className="email__input-container" id="email" type="email" {...register('user')} />
           <AdvicesContainer style={{height: checkEmailData.height}}>
             <span>
               <div>
@@ -108,7 +104,7 @@ const Login = () => {
           </AdvicesContainer>
           <label htmlFor="password">Password</label>
           <div className="password__input-container">
-            <input id="password" type={passwordView} />
+            <input id="password" type={passwordView} {...register('pass')} />
             <MiniButton className='input__button'>
               <img
                 onClick={handlePasswordView}
@@ -129,7 +125,7 @@ const Login = () => {
               <Text className={credentialsError.opacity} style={{ color: credentialsError.color }}>{credentialsError.message}</Text>
             </span>
           </AdvicesContainer>
-          <MediumButton className='color-skyblue font-bold' onClick={() => navigate('/')}>LOGIN</MediumButton>
+          <MediumButton className='color-skyblue font-bold'>LOGIN</MediumButton>
         </form>
 
         <SmallSeparator></SmallSeparator>
