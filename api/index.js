@@ -13,6 +13,8 @@ const routergames = require('./routes/routerGames')
 const routerVarious = require('./routes/routerVarious')
 const routerGameID = require('./routes/routerGameID')
 const routerBestSellers = require('./routes/routerBestSellers')
+const routerForgotPass = require('./routes/routerForgotPass')
+// const routerUpdatePass = require('./routes/routerUpdatepass')
 
 const app = express()
 app.use(cors())
@@ -25,6 +27,8 @@ app.use('/games', cors(), routergames)
 app.use('/gamebyid', cors(), routerGameID)
 app.use('/', cors(), routerVarious)
 app.use('/bestsellers', cors(), routerBestSellers)
+app.use('/recuperationmail', cors(), routerForgotPass)
+// app.use('/updatepassword', cors(), routerUpdatePass)
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening in: https://localhost:${PORT}`)
