@@ -59,6 +59,7 @@ export const CardGrid = ({ title, bestSellers }) => {
               title={item.name}
               price={item.price}
               img={item.background_image}
+              id={item.id}
             />
           ))}
         </Slider>

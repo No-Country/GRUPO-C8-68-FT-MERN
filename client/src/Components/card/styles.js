@@ -10,7 +10,7 @@ export const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-`
+  `
 export const CardTop = styled.div`
   height: 60%;
   width: 100%;
@@ -20,19 +20,20 @@ export const CardTop = styled.div`
     width: 100%;
     height: 100%;
   }
-`
+  `
 export const CardBottom = styled.div`
   height: 40%;
-`
+  `
 
 export const CardTitle = styled.p`
   font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 30px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
 height: 40%;
 color: #000000;
+text-align: center;
 
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (max-width: 768px) {
@@ -41,12 +42,12 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (max-width: 460px) {
     font-size: 16px;
   }
-`
+  `
 
 export const CardPrice = styled.p`
   font-family: 'Inter';
   text-align: center;
-font-style: normal;
+  font-style: normal;
 font-weight: 400;
 font-size: 25px;
 line-height: 30px;
@@ -58,14 +59,4 @@ height: 30%;
   @media (max-width: 460px) {
     font-size: 12px;
   }
-`
-export const CardPlatformsIcons = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 30%;
-span{
-  color: black;
-}
-
 `

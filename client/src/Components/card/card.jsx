@@ -1,32 +1,27 @@
-import { BsWindows} from "react-icons/bs";
-import { FaXbox } from "react-icons/fa";
-import { SiNintendoswitch, SiPlaystation} from "react-icons/si";
+import { Link } from "react-router-dom";
+import { PlatformsIcons } from "./platforms-icons/platforms-icons";
 import {
   CardContainer,
   CardBottom,
   CardPrice,
   CardTitle,
-  CardTop,
-  CardPlatformsIcons
+  CardTop
 } from "./styles";
 
-export const Card = ({ title, price, img}) => {
+export const Card = ({ title, price, img, id}) => {
  
   return (
+    <Link style={{"textDecoration":"none"}} to={`/detail/${id}`}>
     <CardContainer>
       <CardTop>
         <img src={img} alt=''/>
       </CardTop>
       <CardBottom>
         <CardTitle>{title}</CardTitle>
-        <CardPlatformsIcons>
-          <span><BsWindows size="28px"/></span>,
-          <span><SiPlaystation size="28px" /></span>,
-          <span><FaXbox size="28px" /></span>,
-          <span><SiNintendoswitch size="28px"/></span>
-        </CardPlatformsIcons>
+        <PlatformsIcons/>
         <CardPrice>${price}</CardPrice>
       </CardBottom>
     </CardContainer>
+    </Link>
   );
 };
