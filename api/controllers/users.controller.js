@@ -1,12 +1,38 @@
 const userModel = require('../models/user')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
+const TOKEN_KEY = process.env.TOKEN_KEY
 
 const createUser = async (data) => {
   // const date = new Date().toISOString().substring(0, 10)
+  encryptedPass = await bcrypt.hash(data.pass, 10)
   const newUser = await userModel.create({
     user: data.user,
-    pass: data.pass,
+    pass: encryptedPasss,
+    // token: null,
   })
-  return newUser
+  // create token
+  const token = jwt.sign({ user: data.user }, TOKEN_KEY)
+
+  return [newUser, token]
+}
+
+const findUser = (data, res) => {
+  try {
+    userModel.findOne({ user: data.user }, (err, exists) => {
+      if (err) return handleError(err)
+      if (exists) {
+        bcrypt.compare(data.pass, exists.pass, function (err, result) {
+          if (err) return handleError(err)
+          if (result) res.status(201).json({ message: 'Correct Login' })
+          else res.status(400).json({ message: 'Invalid credencials' })
+        })
+      } else res.status(400).json({ message: "User don't exists" })
+    })
+  } catch (err) {
+    res.status(400).json({ message: err.message })
+  }
 }
 
 const registerUser = async (req, res) => {
@@ -14,6 +40,14 @@ const registerUser = async (req, res) => {
   const data = { user, pass }
 
   if (user && pass) {
+    const exists = await userModel.findOne({ user: data.user })
+    if (exists) {
+      res.status(409).json({
+        message: 'User ' + exists.user + ' Already Exist. Please Login',
+      })
+      return
+    }
+
     const result = await createUser(data)
     res.status(201).json(result)
   } else {
@@ -21,29 +55,12 @@ const registerUser = async (req, res) => {
   }
 }
 
-const loginUser = (req, res) => {
+const loginUser = async (req, res) => {
   const { user, pass } = req.body
   const data = { user, pass }
 
   if (user && pass) {
-    try {
-      userModel.findOne(
-        {
-          user: data.user,
-          pass: data.pass,
-        },
-        function (err, result) {
-          if (err) {
-            return handleError(err)
-          }
-          console.log('data1', result)
-          if (result) res.status(201).json({ message: 'Correct Login' })
-          else res.status(400).json({ message: 'Invalid credencials' })
-        }
-      )
-    } catch (err) {
-      res.status(400).json({ message: err.message })
-    }
+    findUser(data, res)
   } else {
     res.status(400).json({ message: 'Please introduce user and pass' })
   }
