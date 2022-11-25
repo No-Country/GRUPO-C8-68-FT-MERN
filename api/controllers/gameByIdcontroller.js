@@ -26,9 +26,12 @@ const game = async (req, res) => {
       result.platforms = platforms
     }
 
+    console.log('result', gamesUrl)
+
     game = {
       id: result.id,
       name: result.name,
+      description: result.description,
       background_image: result.background_image,
       platforms: result.platforms,
       categories: result.genres,

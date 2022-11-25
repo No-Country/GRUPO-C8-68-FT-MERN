@@ -20,7 +20,12 @@ const getPrice = async (title) => {
 }
 
 const games = async (req, res) => {
-  let { search, platforms, dates, page } = req.query // falta order y price
+  let { search, platforms, dates, page, ordering } = req.query // falta order y price
+
+  //   ordering
+  // string
+
+  // Available fields: name, released, added, created, updated, rating, metacritic. You can reverse the sort order adding a hyphen, for example: -released.
 
   if (search) search = '&search=' + search + '&search_exact=true'
   else search = ''
