@@ -5,7 +5,7 @@ import Login from '../Components/login/Login'
 
 const LoginPage = () => {
 
-  const { handleSubmit, register, reset } = useForm()
+  const { handleSubmit, register} = useForm()
 
   const submit = (data) => {
     const URL = 'https://nc8-68backend-production.up.railway.app/user/login'

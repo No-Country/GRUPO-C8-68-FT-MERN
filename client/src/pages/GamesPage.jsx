@@ -52,6 +52,7 @@ const GamesPage = () => {
                 title={game.name}
                 price={game.price}
                 img={game.background_image}
+                id={game.id}
               />
             ))
           :
