@@ -37,6 +37,7 @@ Stack/Tecnologías
     "web-vitals": "^2.1.4"      
     
 Integrantes del equipo
+
   Team leader: Ignacio Rocha - https://github.com/ignacio19975 - https://www.linkedin.com/in/ignacio-rocha/
   
   Frontend: 
