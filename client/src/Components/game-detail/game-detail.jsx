@@ -3,15 +3,15 @@ import { GameDetailImage } from "./game-detail-image/game-detail-image";
 import { GameDetailInfo } from "./game-detail-info/game-detail-info";
 import { GameDetailContainer, GameDetailTitle, InfoDescriptionContainer } from "./styles";
 
-export const GameDetail = ({title, img, release, categories, price}) => {
+export const GameDetail = ({title, img, release, categories, price, description}) => {
     return ( 
         <GameDetailContainer>
           <GameDetailTitle>{title}</GameDetailTitle>  
           <section>
                <GameDetailImage img={img}/>
                <InfoDescriptionContainer>
-                    <GameDetailInfo release={release} categories={categories} price={price}/>
-                    <GameDetailDescription/>
+                    <GameDetailInfo release={release} categories={categories} price={price} />
+                    <GameDetailDescription description={description}/>
                </InfoDescriptionContainer>
           </section>
         </GameDetailContainer> 
