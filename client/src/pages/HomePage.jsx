@@ -47,9 +47,6 @@ const HomePage = () => {
     }
   }, [search, allGames])
 
-    
-
-
   return (
     <section>
       <MediumSeparator></MediumSeparator>
@@ -80,5 +77,5 @@ const HomePage = () => {
     </section>
   )
 }
-
-export default HomePage
+ 
+export default HomePage;

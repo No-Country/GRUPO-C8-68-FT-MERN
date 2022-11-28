@@ -5,7 +5,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-export const CardGrid = ({ title, games }) => {
+export const CardGrid = ({ title, bestSellers }) => {
 
   const settings = {
     dots: false,
@@ -53,12 +53,13 @@ export const CardGrid = ({ title, games }) => {
       <CardGridTitle>{title}</CardGridTitle>
       <CardGridSlideshow>
         <Slider {...settings}>
-          {games.map((item) => (
+          {bestSellers.map((item) => (
             <Card
               key={item.id}
               title={item.name}
               price={item.price}
               img={item.background_image}
+              id={item.id}
             />
           ))}
         </Slider>

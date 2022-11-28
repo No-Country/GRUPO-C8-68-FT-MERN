@@ -6,7 +6,7 @@ import ErrorCheck from '../../IconsSvg/Checks/error-check.svg'
 import RightCheck from '../../IconsSvg/Checks/right-check.svg'
 import { Text, SmallSeparator, Form, BigButton, MediumButton, MiniButton, SeparatorOr, WrapContainer, AdvicesContainer } from '../../AppGlobalStyles.js'
 
-const RegisterForm = () => {
+const RegisterForm = ({ register }) => {
   // PARA DARLE LA FUNCION DE MOSTRAR/OCULTAR CONTRASEÑA A LOS BOTONES
 
   const [passwordView, setPasswordView] = useState('password')
@@ -70,8 +70,8 @@ const RegisterForm = () => {
 
   // SE GUARDAN LOS ESTADOS ACTUALES DE LAS CONTRASEÑAS PARA VERIFICAR SU IGUALDAD MÁS ADELANTE
 
-  const [firstPassword, setFirstPassword] = useState()
-  const [secondPassword, setSecondPassword] = useState()
+  const [firstPassword, setFirstPassword] = useState('')
+  const [secondPassword, setSecondPassword] = useState('')
 
   // PARA VERIFICAR LA LONGITUD DE CONTRASEÑA
 
@@ -257,7 +257,7 @@ const checkPasswordCharacters = (e) => {
 
   return (
     <Form>
-      <form className="register__form" action="">
+      <form className="register__form" onSubmit={register}>
         <div>
           <label htmlFor="email">Email</label>
           <input onKeyUp={checkEmail} className="email__input-container" id="email" type="email" />

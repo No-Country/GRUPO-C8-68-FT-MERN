@@ -16,19 +16,29 @@ const game = async (req, res) => {
 
     const result = resp.data
     let game = {}
-    let platforms
 
-    // Eliminamos las plataformas android y iOs
+    // Eliminamos las plataformas android y iOs y las claves no usadas
     if (result.platforms.length > 0) {
-      platforms = result.platforms.filter((p) => {
+      result.platforms = result.platforms.filter((p) => {
         return p.platform.name !== 'Android' && p.platform.name !== 'iOS'
       })
-      result.platforms = platforms
+      // result.platforms = platforms
+      let aux = []
+      result.platforms.forEach((p) => {
+        aux.push(p.platform.name)
+      })
+      result.platforms = aux
+      aux = []
+      console.log('categories', result.genres)
+      result.genres.forEach((c) => aux.push(c.name))
+      result.genres = aux
+      result.esrb = result.esrb_rating.name
     }
 
     game = {
       id: result.id,
       name: result.name,
+      description: result.description,
       background_image: result.background_image,
       platforms: result.platforms,
       categories: result.genres,
