@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GameDetail } from "../Components/game-detail/game-detail";
+import { GameReview } from "../Components/game-review/game-review";
 import { Layout } from "../Components/layout/layout";
 
 export const DetailPage = () => {
@@ -24,7 +25,9 @@ export const DetailPage = () => {
                 title={game.name}
                 price={game.price}
                 release={game.released}
+                description={game.description}
                 categories={game.categories}/>
+            <GameReview/>
         </Layout>
         
     );
