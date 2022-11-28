@@ -17,9 +17,12 @@ const Search = ({ setSearch }) => {
   }
 
   const searcher = (e) => {
-    setSearch(e.target.value)
+    const valueSearch = e.target.value;
+    if(e.key ==='Enter'){
+      //console.log(valueSearch)
+      setSearch(valueSearch)
+    }
   }
-
   return (
     <SearchGamesContainer>
       <span>
@@ -27,7 +30,7 @@ const Search = ({ setSearch }) => {
         <input
           onBlur={handleVisibility}
           onFocus={handleVisibility}
-          onChange={(e) => {
+          onKeyDown={(e) => {
             searcher(e)
             handleVisibility(e)
           }}
@@ -35,10 +38,11 @@ const Search = ({ setSearch }) => {
           id="search-id"
           name="search"
           placeholder="Search"
-        />
+        />     
         <div className={`errase__button ${visibility}`}></div>
       </span>
     </SearchGamesContainer>
+    
   )
 }
 export default Search

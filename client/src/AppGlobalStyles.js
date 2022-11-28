@@ -406,6 +406,26 @@ export const GamesContainer = styled.section`
   margin: 40px auto;
   row-gap: 60px;
 `
+export const PageGamesContainer = styled.div`
+  div {
+    box-sizing: border-box;
+    margin: 30px 0;
+    width: 30%;
+    padding: 1.2rem 1.2rem;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    background: rgba(217, 217, 217, 0.3);
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    :focus {
+      outline: 1px solid #fff6;
+  }
+
+
+`
+
 export const SearchGamesContainer = styled.div`
   margin: 0 auto;
   width: 80%;
@@ -502,5 +522,8 @@ export const SearchGamesContainer = styled.div`
       }
     }
   }
-  
 `
+export const PaginationContainer = styled.div`
+      color: white;
+    background-color: white;
+  `

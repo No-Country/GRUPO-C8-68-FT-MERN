@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Search from '../Components/search/Search'
+import Pagination from '../Components/pagination/Pagination'
 import { Card } from '../Components/card/card'
 import { GamesContainer, MediumSeparator, Text, Subtitle, TitlesContainer } from '../AppGlobalStyles'
 
@@ -9,20 +10,31 @@ const HomePage = () => {
   //! Se obtienen todos los juegos de la BD
 
   const [allGames, setAllGames] = useState([])
-
+  const [search, setSearch] = useState('')
+  const [page, setPage] = useState('1')
+  const [pagesLength, setPagesLength] = useState(20)
+  const [gamesPerPage, setGamesPerPage] = useState(20)
+  const inicialElement = 0
+  //const finalElement = page * gamePorPage
+  const finalElement = gamesPerPage 
+  console.log("Page" , page)
+    
   useEffect(() => {
-    const URL = 'https://nc8-68backend-production.up.railway.app/games'
-    axios.get(URL)
+      const URL = 'https://nc8-68backend-production.up.railway.app/games?page='+page + (search ? '&search=' + search : '')
+      console.log('URL', URL)
+      axios.get(URL)
       .then(res => {
+        console.log('URL', URL)
         setAllGames(res.data.games)
         setGamesToShow(res.data.games)
+        setPagesLength(res.data.pages)
       })
       .catch(err => console.log(err.data))
-  }, [])
+  }, [search])
 
-  //! Se crea es estado de los juegos a mostrar
+  // ! Se crea es estado de los juegos a mostrar
 
-  const [search, setSearch] = useState()
+ 
   const [gamesToShow, setGamesToShow] = useState(allGames)
 
   useEffect(() => {
@@ -35,10 +47,17 @@ const HomePage = () => {
     }
   }, [search, allGames])
 
+    
+
+
   return (
     <section>
       <MediumSeparator></MediumSeparator>
       <Search setSearch={setSearch} />
+      <Pagination 
+        page={page}
+        setPage={setPage}
+        pagesLength= {pagesLength}/>
       <TitlesContainer style={{maxWidth: '1360px'}}>
         <Subtitle  className='color-gray'>All Games</Subtitle>
       </TitlesContainer>
@@ -46,7 +65,7 @@ const HomePage = () => {
         {
           (gamesToShow.length !== 0)
           ?
-            gamesToShow.map((game) => (
+          gamesToShow.slice(inicialElement,finalElement).map((game) => (
               <Card 
                 key={game.id}
                 title={game.name}
