@@ -5,6 +5,7 @@ Titulo de Proyecto: NCGAMES
 Descripción de Proyecto: El proyecto es un ecommerce de videojuegos.
 
 Stack/Tecnologías
+
     Backend:
       "axios": "^1.1.3",
     "bcrypt": "^5.1.0",
