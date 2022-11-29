@@ -1,28 +1,27 @@
-// ids mas vendidos:  Anillo de Elden  - 326243
-//     LEGO Star Wars: La saga Skywalker - 87441
-//     Pokémon Leyendas: Arceus - 665903
-//     Horizonte Prohibido Oeste - 452642
+// ids mas vendidos:
+//     Anillo de Elden  - 326243
+//     Horizon forbidden west - 452642
 //     Call of Duty: Vanguardia - 647552
 //     gran turismo 7 - 452633
-//     Kirby y la tierra olvidada - 874946
-//     mario kart 8 - 757208
+//     Kirby y la tierra olvidada - 667657
 //     Madden NFL 22 - 650806
 //     Minecraft - 22509
-//     fifa22
-//     Spider-Man de Marvel: Miles Morales
-//     Cazador de monstruos: Asciende
-//     Cruce de animales: nuevos horizontes
-//     Super Smash Bros Ultimate
-//     Mario Party Superestrellas
-//     Call of Duty: Black Ops: Guerra Fría
-//     Luz moribunda 2: mantente humano
-
+//     fifa23 - 823549
+//     Cazador de monstruos: Asciende - 669216
+//     Call of Duty: Black Ops: Guerra Fría - 719765
+//     Dying Light 2: Stay Human - 58758
+const data = require('../data/home')
 const axios = require('axios')
 const API_KEY = process.env.API_KEY
 const baseUrl = 'https://api.rawg.io/api/'
-const bestSellers = [
-  326243, 87441, 665903, 452642, 647552, 452633, 874946, 757208, 650806, 22509,
-]
+const { bestsellers, recommended } = data
+// const bestSellers = [
+//   326243, 667657, 58758, 669216, 647552, 452642, 650806, 22509, 823549, 452633,
+// ]
+
+// const recommended = [
+//   872778, 846505, 759363, 616697, 388308, 22509, 326239, 761405, 494384, 462677,
+// ]
 
 const searchGame = async (id) => {
   let gamesUrl
@@ -63,11 +62,13 @@ const searchGame = async (id) => {
 }
 
 const games = async (req, res) => {
-  let result = []
-  for (let i = 0; i < 10; i++) {
-    result.push(await searchGame(bestSellers[i]))
-  }
-  res.json(result)
+  // let result1 = [],
+  //   result2 = []
+  // for (let i = 0; i < 10; i++) {
+  //   result1.push(await searchGame(bestSellers[i]))
+  //   result2.push(await searchGame(recommended[i]))
+  // }
+  res.json({ bestsellers, recommended })
 }
 
 module.exports = games

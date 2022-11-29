@@ -55,8 +55,12 @@ const games = async (req, res) => {
   results.forEach((e, i) => {
     if (e.platforms) {
       let platforms = e.platforms.filter((p) => {
-        // Eliminamos las plataformas android y iOs
-        return p.platform.name !== 'Android' && p.platform.name !== 'iOS'
+        // Eliminamos las plataformas android, web y iOs
+        return (
+          p.platform.name !== 'Android' &&
+          p.platform.name !== 'iOS' &&
+          p.platform.name !== 'Web'
+        )
       })
       e.platforms = platforms
       e.platforms = e.platforms.map((p) => p.platform.name)
@@ -64,19 +68,20 @@ const games = async (req, res) => {
     if (e.genres) e.genres = e.genres.map((g) => g.name)
     if (e.esrb_rating) e.esrb_rating = e.esrb_rating.name
 
-    games.push({
-      price: prices[i],
-      id: e.id,
-      name: e.name,
-      background_image: e.background_image,
-      platforms: e.platforms,
-      categories: e.genres,
-      //   tags: e.tags,
-      released: e.released,
-      esrb: e.esrb_rating,
-      // price: 99.99,
-      //   short_screenshots: e.short_screenshots
-    })
+    if (e.platforms.length > 0)
+      games.push({
+        price: prices[i],
+        id: e.id,
+        name: e.name,
+        background_image: e.background_image,
+        platforms: e.platforms,
+        categories: e.genres,
+        //   tags: e.tags,
+        released: e.released,
+        esrb: e.esrb_rating,
+        price: 99.99,
+        //   short_screenshots: e.short_screenshots
+      })
   })
 
   res.json({ total, pages, games })

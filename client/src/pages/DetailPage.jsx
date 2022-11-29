@@ -22,6 +22,7 @@ export const DetailPage = () => {
       .catch((err) => console.log(err.data))
   }, [id])
 
+  console.log('id in DetailPage', id)
   return (
     <Layout>
       {loading ? (

@@ -6,7 +6,8 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Spinner } from '../spinner/spinner'
 
-export const CardGrid = ({ title, bestSellers, loading }) => {
+export const CardGrid = ({ title, games, loading }) => {
+  console.log('data in card-grid', games)
   const settings = {
     dots: false,
     infinite: true,
@@ -56,15 +57,17 @@ export const CardGrid = ({ title, bestSellers, loading }) => {
       ) : (
         <CardGridSlideshow>
           <Slider {...settings}>
-            {bestSellers.map((item) => (
-              <Card
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                img={item.background_image}
-                id={item.id}
-              />
-            ))}
+            {games
+              ? games.map((item) => (
+                  <Card
+                    key={item.id}
+                    title={item.name}
+                    price={item.price}
+                    img={item.background_image}
+                    id={item.id}
+                  />
+                ))
+              : null}
           </Slider>
         </CardGridSlideshow>
       )}

@@ -1,4 +1,3 @@
-
 import { CardGrid } from '../Components/card-grid/card-grid'
 import { Layout } from '../Components/layout/layout'
 import axios from 'axios'
@@ -7,8 +6,8 @@ import { useState } from 'react'
 
 const HomePage = () => {
   const [bestSellers, setBestSellers] = useState([])
+  const [recommended, setRecommended] = useState([])
   const [loading, setLoading] = useState(true)
-
 
   //! Se obtienen todos los juegos de la BD
 
@@ -19,15 +18,17 @@ const HomePage = () => {
   const [gamesPerPage, setGamesPerPage] = useState(20)
   const inicialElement = 0
   //const finalElement = page * gamePorPage
-  const finalElement = gamesPerPage 
-  console.log("Page" , page)
-    
+  const finalElement = gamesPerPage
+  // console.log('Page', page)
+
   useEffect(() => {
     const URL = 'https://nc8-68backend-production.up.railway.app/bestsellers'
     axios
       .get(URL)
       .then((res) => {
-        setBestSellers(res.data)
+        // console.log('data in HomePage', res.data)
+        setBestSellers(res.data.bestsellers)
+        setRecommended(res.data.recommended)
         setLoading(false)
       })
       .catch((err) => console.log(err.data))
@@ -35,18 +36,13 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <CardGrid
-        title={'Best Seller'}
-        bestSellers={bestSellers}
-        loading={loading}
-      />
+      <CardGrid title={'Best Seller'} games={bestSellers} loading={loading} />
       <CardGrid
         title={'Recomendations'}
-        bestSellers={bestSellers}
+        games={recommended}
         loading={loading}
       />
     </Layout>
-
   )
 }
 
