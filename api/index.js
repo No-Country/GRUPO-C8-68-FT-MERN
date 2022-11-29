@@ -6,6 +6,7 @@ require('dotenv').config()
 
 const MONGO_PASS = process.env.MONGO_PASS
 const PORT = process.env.PORT || 8080
+const LOCAL = process.env.LOCAL || false
 
 // Routes
 const userRouter = require('./routes/users.router')
