@@ -1,27 +1,38 @@
-import { CardGrid } from "../Components/card-grid/card-grid";
-import { Layout } from "../Components/layout/layout";
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { CardGrid } from '../Components/card-grid/card-grid'
+import { Layout } from '../Components/layout/layout'
+import axios from 'axios'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 const HomePage = () => {
-    const [bestSellers, setBestSellers] = useState([])
+  const [bestSellers, setBestSellers] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const URL = 'https://nc8-68backend-production.up.railway.app/bestsellers'
-    axios.get(URL)
-      .then(res => {
+    axios
+      .get(URL)
+      .then((res) => {
         setBestSellers(res.data)
+        setLoading(false)
       })
-      .catch(err => console.log(err.data))
+      .catch((err) => console.log(err.data))
   }, [])
-  
-    return ( 
-        <Layout>
-            <CardGrid title={"Best Seller"} bestSellers={bestSellers}/>
-            <CardGrid title={"Recomendations"} bestSellers={bestSellers}/> 
-        </Layout>
-    );
+
+  return (
+    <Layout>
+      <CardGrid
+        title={'Best Seller'}
+        bestSellers={bestSellers}
+        loading={loading}
+      />
+      <CardGrid
+        title={'Recomendations'}
+        bestSellers={bestSellers}
+        loading={loading}
+      />
+    </Layout>
+  )
 }
- 
-export default HomePage;
+
+export default HomePage
