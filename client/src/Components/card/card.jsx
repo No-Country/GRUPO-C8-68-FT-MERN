@@ -9,7 +9,7 @@ import {
 } from './styles'
 
 export const Card = ({ title, price, img, id }) => {
-  console.log('data in gamespage', { title, price, img, id })
+  console.log('data in cards', { title, price, img, id })
   return (
     <Link style={{ textDecoration: 'none' }} to={`/detail/${id}`}>
       <CardContainer>

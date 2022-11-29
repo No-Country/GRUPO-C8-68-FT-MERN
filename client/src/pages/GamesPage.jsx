@@ -11,7 +11,7 @@ import {
   TitlesContainer,
 } from '../AppGlobalStyles'
 
-const HomePage = () => {
+const GamesPage = () => {
   //! Se obtienen todos los juegos de la BD
 
   const [allGames, setAllGames] = useState([])
@@ -22,18 +22,15 @@ const HomePage = () => {
   const inicialElement = 0
   //const finalElement = page * gamePorPage
   const finalElement = gamesPerPage
-  console.log('Page', page)
 
   useEffect(() => {
     const URL =
       'https://nc8-68backend-production.up.railway.app/games?page=' +
       page +
       (search ? '&search=' + search : '')
-    console.log('URL', URL)
     axios
       .get(URL)
       .then((res) => {
-        console.log('URL', URL)
         setAllGames(res.data.games)
         setGamesToShow(res.data.games)
         setPagesLength(res.data.pages)
@@ -57,6 +54,7 @@ const HomePage = () => {
     }
   }, [search, allGames])
 
+  console.log('data in gamespage', gamesToShow[0].id)
   return (
     <section>
       <MediumSeparator></MediumSeparator>
@@ -85,4 +83,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default GamesPage
