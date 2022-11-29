@@ -12,7 +12,7 @@ export const Card = ({ title, price, img, id}) => {
  
   return (
     <Link style={{"textDecoration":"none"}} to={`/detail/${id}`}>
-    <CardContainer>
+          <CardContainer>
       <CardTop>
         <img src={img} alt=''/>
       </CardTop>
