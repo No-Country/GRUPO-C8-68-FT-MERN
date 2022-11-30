@@ -8,4 +8,4 @@ var userSchema = mongoose.Schema({
   reviews: Array,
 })
 
-module.exports = mongoose.model('users', userSchema)
+module.exports = mongoose.model('games', userSchema)
