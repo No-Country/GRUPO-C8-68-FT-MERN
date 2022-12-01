@@ -5,14 +5,13 @@ import { HiMenuAlt3 } from 'react-icons/hi'
 import { IoGameControllerOutline, IoLogInOutline } from 'react-icons/io5'
 import logo from '../../assets/LogoNCGames.svg'
 import { Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { UserConected } from './user-conected/user-conected';
-import useLocalStorage from '../../hooks/useLocalStorage';
+import { useSelector } from 'react-redux'
 
 export const DefaultNavbar = () => {
   const [menuStatus, setMenuStatus] = useState('hidden');
-  const [user] = useLocalStorage("user", {});
-  const [userIsLogged, setUserIsLogged] = useState(false);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
 
   const handleMenuStatus = () => {
     if (menuStatus === 'hidden') {
@@ -24,10 +23,7 @@ export const DefaultNavbar = () => {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    setUserIsLogged(!!user?.user)    
-  },[user])
-
+  
   return (
     <Header>
       <Nav>
@@ -56,8 +52,8 @@ export const DefaultNavbar = () => {
                   <BsCart size="30px" />Cart
                 </a>
               </li>
-              {userIsLogged && <UserConected/>}
-              {!userIsLogged && 
+              {isLoggedIn && <UserConected/>}
+              {!isLoggedIn &&
               <>
                 <li>
                   <Link onClick={handleMenuStatus} to={'/login'}>

@@ -7,7 +7,7 @@ import EyeSlash from '../../IconsSvg/EyeSlash/EyeSlash.svg'
 import { Link } from 'react-router-dom'
 import { Subtitle, Title, Text, LinkedText, Form, AdvicesContainer, BigButton, MediumButton, MiniButton, SmallSeparator, SeparatorOr, WrapContainer, TitlesContainer } from '../../AppGlobalStyles.js'
 
-const Login = ({ handleSubmit, submit, register }) => {
+const Login = ({ handleSubmit, submit, register, error }) => {
 
   const [passwordView, setPasswordView] = useState('password')
 
@@ -125,6 +125,7 @@ const Login = ({ handleSubmit, submit, register }) => {
               <Text className={credentialsError.opacity} style={{ color: credentialsError.color }}>{credentialsError.message}</Text>
             </span>
           </AdvicesContainer>
+          {error && <p>{error}</p>}
           <MediumButton className='color-skyblue font-bold'>LOGIN</MediumButton>
         </form>
 
