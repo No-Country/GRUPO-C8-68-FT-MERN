@@ -5,12 +5,14 @@ import { HiMenuAlt3 } from 'react-icons/hi'
 import { IoGameControllerOutline, IoLogInOutline } from 'react-icons/io5'
 import logo from '../../assets/LogoNCGames.svg'
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { UserConected } from './user-conected/user-conected';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 export const DefaultNavbar = () => {
-
-  const [menuStatus, setMenuStatus] = useState('hidden')
-
+  const [menuStatus, setMenuStatus] = useState('hidden');
+  const [user] = useLocalStorage("user", {});
+  const [userIsLogged, setUserIsLogged] = useState(false);
 
   const handleMenuStatus = () => {
     if (menuStatus === 'hidden') {
@@ -21,6 +23,10 @@ export const DefaultNavbar = () => {
   }
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setUserIsLogged(!!user?.user)    
+  },[user])
 
   return (
     <Header>
@@ -50,16 +56,20 @@ export const DefaultNavbar = () => {
                   <BsCart size="30px" />Cart
                 </a>
               </li>
-              <li>
-                <Link onClick={handleMenuStatus} to={'/login'}>
-                  <IoLogInOutline size="30px" />Log in
-                </Link>
-              </li>
-              <li>
-                <Link onClick={handleMenuStatus} to={'/register'}>
-                  <AiOutlineUserAdd size="30px" />Register
-                </Link>
-              </li>
+              {userIsLogged && <UserConected/>}
+              {!userIsLogged && 
+              <>
+                <li>
+                  <Link onClick={handleMenuStatus} to={'/login'}>
+                    <IoLogInOutline size="30px" />Log in
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleMenuStatus} to={'/register'}>
+                    <AiOutlineUserAdd size="30px" />Register
+                  </Link>
+                </li>
+              </>}
             </ul>
           </li>
         </HeaderLinks>
