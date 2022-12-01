@@ -528,12 +528,15 @@ export const PaginationContainer = styled.div`
 `
 
 export const FooterContainer = styled.footer`
-  background: rgba(105,129,138,0.65);
   height: 120px;
   width: 100%;
   position: absolute;
   bottom: 0;
   section {
+    background: rgba(105,129,138,0.65);
+    border-top: 1px solid #fff6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px 5px 0 0;
     height: 100%;
     display: flex;
     flex-direction: column;
