@@ -9,23 +9,24 @@ const createUser = async (data) => {
   encryptedPass = await bcrypt.hash(data.pass, 10)
   const newUser = await userModel.create({
     user: data.user,
-    pass: encryptedPasss,
+    pass: encryptedPass,
     // token: null,
   })
-  // create token
-  const token = jwt.sign({ user: data.user }, TOKEN_KEY)
 
-  return [newUser, token]
+  return newUser
 }
 
 const findUser = (data, res) => {
+  // create token
+  const token = jwt.sign({ user: data.user }, TOKEN_KEY)
+
   try {
     userModel.findOne({ user: data.user }, (err, exists) => {
       if (err) return handleError(err)
       if (exists) {
         bcrypt.compare(data.pass, exists.pass, function (err, result) {
           if (err) return handleError(err)
-          if (result) res.status(201).json({ message: 'Correct Login' })
+          if (result) res.status(201).json({ token: token })
           else res.status(400).json({ message: 'Invalid credencials' })
         })
       } else res.status(400).json({ message: "User don't exists" })
@@ -69,9 +70,9 @@ const loginUser = async (req, res) => {
 const allUsers = (req, res) => {
   userModel.find({}, (err, result) => {
     if (err) {
-      res.send(err)
+      res.status(400).send(err)
     } else {
-      res.send(result)
+      res.status(200).send(result)
     }
   })
 }
