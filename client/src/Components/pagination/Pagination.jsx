@@ -50,7 +50,7 @@ const Pagination = ({page, setPage, pagesLength}) =>{
                 {
                 arrPages.map(e => (
                 <li
-                    className={`pagination__page ${page==e && 'pagination__active'}`}
+                    className={`pagination__page ${page===e && 'pagination__active'}`}
                     onClick={() => botonPagina(e)}
                     key={e}>{e}
                 </li>

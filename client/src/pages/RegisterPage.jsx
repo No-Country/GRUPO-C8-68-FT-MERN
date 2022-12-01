@@ -1,11 +1,9 @@
 import axios from 'axios'
-import React, { } from 'react'
 import { Link } from 'react-router-dom'
 import { Title, LinkedText, TitlesContainer, Subtitle } from '../AppGlobalStyles.js'
 import RegisterForm from '../Components/register/RegisterForm.jsx'
 
 const RegisterPage = () => {
-
   const register = (e) => {
     const URL = 'https://nc8-68backend-production.up.railway.app/user/register'
 
