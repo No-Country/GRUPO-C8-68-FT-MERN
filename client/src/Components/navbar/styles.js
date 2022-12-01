@@ -8,18 +8,13 @@ export const Header = styled.header`
   top: 0;
 `
 export const Nav = styled.nav`
-  background: linear-gradient(
-    90deg,
-    rgba(58, 73, 180, 1) 51%,
-    rgba(35, 183, 217, 1) 100%
-  );
+  background: white;
+  color: black;
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-between  ;
+  justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid rgb(2, 164, 204);
-  box-shadow: 4px 0 8px rgb(2, 83, 103);
 `
 export const HeaderLogo = styled.div`
 margin-left: 20px;
@@ -45,7 +40,6 @@ export const HeaderLinks = styled.ul`
     align-items: center;
     white-space: nowrap;
     a {
-      color: rgb(255, 255, 255);
       font-size: 20px;
       padding: 0px 12px;
       transition: transform 0.3s ease;
@@ -55,7 +49,6 @@ export const HeaderLinks = styled.ul`
     }
   }
   .hamburger__btn {
-    color: white;
     cursor: pointer;
     transition: transform 0.3s ease;
     :hover {
@@ -81,6 +74,7 @@ export const HeaderLinks = styled.ul`
       flex-direction: column;
       gap: 40px;
       li > a {
+        color: black;
         font-size: 30px;
         text-decoration: none;
         width: 100%;
@@ -101,7 +95,7 @@ export const HeaderLinks = styled.ul`
       margin: 0;  
       align-items: center;
       a {
-        color: rgb(255, 255, 255);
+        color: white;
         font-size: 20px;
         padding: 0px 12px;
         transition: transform 0.3s ease;

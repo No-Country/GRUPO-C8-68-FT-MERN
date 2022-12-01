@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const AppContainer =  styled.div`
+export const AppContainer = styled.div`
   color: white;
-  min-height: 100vh;
-  position: relative;
-  padding-top: 100px;
-  padding-bottom: 200px;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  padding-top: 130px;
+  padding-bottom: 150px;
   background-color: #141518;
 
   /* //! Para elegir tipo de fuente añadiendo un className
@@ -333,7 +334,7 @@ export const MiniButton = styled.button`
 export const TitlesContainer = styled.div`
   width: 80%;
   max-width: 620px;
-  margin: 20px auto;
+  margin: 0 auto;
 `
 export const SmallSeparator = styled.div`
   width: 100%;
@@ -421,11 +422,9 @@ export const PageGamesContainer = styled.div`
     outline: none;
     :focus {
       outline: 1px solid #fff6;
+    }
   }
-
-
 `
-
 export const SearchGamesContainer = styled.div`
   margin: 0 auto;
   width: 80%;
@@ -524,6 +523,38 @@ export const SearchGamesContainer = styled.div`
   }
 `
 export const PaginationContainer = styled.div`
-      color: white;
-    background-color: white;
-  `
+  color: white;
+  background-color: white;
+`
+
+export const FooterContainer = styled.footer`
+  background: rgba(105,129,138,0.65);
+  height: 120px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      li {
+        margin: 0 20px;
+        a {
+          color: white;
+          padding: 0px 12px;
+          :hover {
+            color: rgb(7, 3, 43);
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+`
