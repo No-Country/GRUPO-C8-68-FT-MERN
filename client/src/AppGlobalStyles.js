@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AppContainer =  styled.div`
+export const AppContainer = styled.div`
   color: white;
   min-height: 100vh;
   position: relative;
@@ -41,7 +41,7 @@ export const AppContainer =  styled.div`
 
 /* //* Títulos
 */
-export const Title =  styled.h1`
+export const Title = styled.h1`
   margin: 0 auto;
   width: fit-content;
   font-size: 26px;
@@ -53,7 +53,7 @@ export const Title =  styled.h1`
 
 /* //* Subtítulos
 */
-export const Subtitle =  styled.h2 `
+export const Subtitle = styled.h2`
   font-size: 21px;
   font-weight: 400;
   @media (min-width: 600px) {
@@ -63,7 +63,7 @@ export const Subtitle =  styled.h2 `
 
 /* //* Texto
 */
-export const Text =  styled.p`
+export const Text = styled.p`
   font-size: 16px;
   transition: color .4s ease, opacity .4s ease;
   @media (min-width: 600px) {
@@ -241,7 +241,7 @@ export const Form = styled.div`
 
 /* //* Botones
 */
-  export const BigButton = styled.button`
+export const BigButton = styled.button`
   height: 86px;
   width: 48.3%;
   margin: 6px;
@@ -278,7 +278,7 @@ export const Form = styled.div`
       display: none;
     }
   }
-` 
+`
 export const MediumButton = styled.button`
   height: 62px;
   min-width: 197px;
@@ -308,7 +308,7 @@ export const MediumButton = styled.button`
       display: none;
     }
   }
-` 
+`
 export const MiniButton = styled.button`
   display: flex;
   align-items: center;
@@ -523,7 +523,31 @@ export const SearchGamesContainer = styled.div`
     }
   }
 `
-export const PaginationContainer = styled.div`
-      color: white;
-    background-color: white;
-  `
+export const PaginationContainer = styled.div`        
+  .pagination{
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    display: flex;
+    gap:10px;
+    align-items: center;
+  }
+  .pagination__container{
+    display: flex;
+    gap:35px;
+  }
+  .pagination__page,
+  .pagination__next,
+  .pagination__prev{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center; 
+    cursor: pointer;   
+  }
+  .pagination__active{
+    background-color: rgb(151, 15, 201);
+    color:rgb(255, 255, 255);
+    border-radius:5px;
+  }
+ `
