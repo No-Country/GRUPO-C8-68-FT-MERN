@@ -52,20 +52,26 @@ export const DefaultNavbar = () => {
                   <BsCart size="30px" />Cart
                 </a>
               </li>
-              {isLoggedIn && <UserConected/>}
-              {!isLoggedIn &&
-              <>
+              {
+                isLoggedIn && 
+                <UserConected/>}
+              {
+                !isLoggedIn &&
                 <li>
-                  <Link onClick={handleMenuStatus} to={'/login'}>
-                    <IoLogInOutline size="30px" />Log in
-                  </Link>
+                  <ul>
+                    <li>
+                      <Link onClick={handleMenuStatus} to={'/login'}>
+                        <IoLogInOutline size="30px" />Log in
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={handleMenuStatus} to={'/register'}>
+                        <AiOutlineUserAdd size="30px" />Register
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
-                <li>
-                  <Link onClick={handleMenuStatus} to={'/register'}>
-                    <AiOutlineUserAdd size="30px" />Register
-                  </Link>
-                </li>
-              </>}
+              }
             </ul>
           </li>
         </HeaderLinks>

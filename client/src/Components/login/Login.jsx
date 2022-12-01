@@ -105,7 +105,7 @@ const Login = ({ handleSubmit, submit, register, error }) => {
           <label htmlFor="password">Password</label>
           <div className="password__input-container">
             <input id="password" type={passwordView} {...register('pass')} />
-            <MiniButton className='input__button'>
+            <MiniButton type='button' className='input__button'>
               <img
                 onClick={handlePasswordView}
                 src={EyeSlash}
@@ -140,11 +140,11 @@ const Login = ({ handleSubmit, submit, register, error }) => {
         </SeparatorOr>
 
         <WrapContainer>
-          <BigButton>
+          <BigButton type='button'>
             <img src={FacebookSvg} alt="" />
             <Text>Continue with Facebook</Text>
           </BigButton>
-          <BigButton>
+          <BigButton type='button'>
             <img src={GoogleSvg} alt="" />
             <Text>Continue with Google</Text>
           </BigButton>
