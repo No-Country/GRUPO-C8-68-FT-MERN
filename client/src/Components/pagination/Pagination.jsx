@@ -1,10 +1,9 @@
 import React from "react";
-import { PaginationContainer } from '../../AppGlobalStyles'
-
+import {PaginationContainer} from '../../AppGlobalStyles'
 
 const Pagination = ({page, setPage, pagesLength}) =>{
     //El número de botones
-    const botonesVisibles = 5
+    const botonesVisibles = 8
                     //1/8 = 0.125
                     //2/8 = 0.25
                     //3/8 = 0375
@@ -22,26 +21,47 @@ const Pagination = ({page, setPage, pagesLength}) =>{
     const limitPage = numeroDeBloques===bloqueActual? pagesLength: bloqueActual * botonesVisibles
     for(let i= initialPage; i<=limitPage; i++){
         arrPages.push(i)
+        console.log('tipo de array', typeof i)
     }
-
+    
+    console.log('Tipo de pagina', typeof page)
     console.log('pagina', page)
     console.log('numero de paginas', pagesLength)
     console.log('numero de bloques', numeroDeBloques)
     console.log('bloque Actual', bloqueActual)
+    
+    const flechitaPrev=()=>{
+        setPage(page-1)
+    }
+    const flechitaNext=()=>{
+        setPage(page+1)
+    }
+    const botonPagina=(e)=>{
+        setPage(e)
+    }
 
     return(
-        <div>
-            <div>&#60;</div>
-            <ul>
+        <PaginationContainer>
+        <div className='pagination'>
+            {page > 1 &&
+            <div onClick={flechitaPrev} className='pagination__prev pagination__active'>&#60;</div>
+            }
+            <ul className='pagination__container'>
                 {
-                arrPages.map(e =>{
-                    <li key={e}>{e}</li>
-                })
-                }
+                arrPages.map(e => (
+                <li
+                    className={`pagination__page ${page==e && 'pagination__active'}`}
+                    onClick={() => botonPagina(e)}
+                    key={e}>{e}
+                </li>
+                ))
+                }   
             </ul>
-            <div>&#62;</div>
+            {page < pagesLength &&
+            <div onClick={flechitaNext} className='pagination__next pagination__active'>&#62;</div>
+            }
         </div>
+        </PaginationContainer>
     )
 }
-
 export default Pagination
