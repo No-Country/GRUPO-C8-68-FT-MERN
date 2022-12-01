@@ -4,14 +4,15 @@ html {
   font-family: 'Inter', sans-serif;
 }
 
-#root {
-  min-height: 100%;
-}
-
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
+}
+
+p, h1, h2, h3, h4, h5, ul {
+  margin: 0;
+  padding: 0;
 }
 
 * {

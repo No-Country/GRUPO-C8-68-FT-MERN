@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const AppContainer = styled.div`
   color: white;
-  min-height: 100vh;
-  position: relative;
-  padding-top: 100px;
-  padding-bottom: 200px;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  padding-top: 130px;
+  padding-bottom: 150px;
   background-color: #141518;
 
   /* //! Para elegir tipo de fuente añadiendo un className
@@ -333,7 +334,7 @@ export const MiniButton = styled.button`
 export const TitlesContainer = styled.div`
   width: 80%;
   max-width: 620px;
-  margin: 20px auto;
+  margin: 0 auto;
 `
 export const SmallSeparator = styled.div`
   width: 100%;
@@ -421,11 +422,9 @@ export const PageGamesContainer = styled.div`
     outline: none;
     :focus {
       outline: 1px solid #fff6;
+    }
   }
-
-
 `
-
 export const SearchGamesContainer = styled.div`
   margin: 0 auto;
   width: 80%;
@@ -463,6 +462,7 @@ export const SearchGamesContainer = styled.div`
       padding: 1.2rem 1.2rem;
       color: white;
       border: none;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
       border-radius: 20px;
       background: rgba(217, 217, 217, 0.3);
       font-size: 16px;
@@ -519,6 +519,41 @@ export const SearchGamesContainer = styled.div`
         border-radius: 2px;
         background-color: #9C9797;
         transform: rotate(-45deg);
+      }
+    }
+  }
+`
+
+export const FooterContainer = styled.footer`
+  height: 120px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  section {
+    background: rgba(105,129,138,0.65);
+    border-top: 1px solid #fff6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px 5px 0 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      li {
+        margin: 0 20px;
+        a {
+          color: white;
+          padding: 0px 12px;
+          :hover {
+            color: rgb(7, 3, 43);
+            transition: 0.3s;
+          }
+        }
       }
     }
   }

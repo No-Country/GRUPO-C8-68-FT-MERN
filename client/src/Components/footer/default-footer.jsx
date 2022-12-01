@@ -1,5 +1,4 @@
-import { FooterContainer, FooterLinks, FooterSection } from './styles'
-import './Footer.css'
+import { FooterContainer, Text } from '../../AppGlobalStyles'
 
 import { FaFacebookF } from 'react-icons/fa'
 import { BsTwitter } from 'react-icons/bs'
@@ -8,8 +7,8 @@ import { BsInstagram } from 'react-icons/bs'
 export const DefaultFooter = () => {
   return (
     <FooterContainer>
-      <FooterSection>
-        <FooterLinks>
+      <section>
+        <ul>
           <li>
             <a href="#!">
               <FaFacebookF size="30px" />
@@ -25,8 +24,9 @@ export const DefaultFooter = () => {
               <BsInstagram size="30px" />
             </a>
           </li>
-        </FooterLinks>
-      </FooterSection>
+        </ul>
+        <Text>- NC Games 2022 -</Text>
+      </section>
     </FooterContainer>
   )
 }
