@@ -462,6 +462,7 @@ export const SearchGamesContainer = styled.div`
       padding: 1.2rem 1.2rem;
       color: white;
       border: none;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
       border-radius: 20px;
       background: rgba(217, 217, 217, 0.3);
       font-size: 16px;
