@@ -400,9 +400,10 @@ export const AdvicesContainer = styled.div`
   }
 `
 export const GamesContainer = styled.section`
-  width: 90%;
+  min-width: 90%;
   max-width: 1440px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 40px auto;
   row-gap: 60px;
@@ -426,16 +427,14 @@ export const PageGamesContainer = styled.div`
   }
 `
 export const SearchGamesContainer = styled.div`
-  margin: 0 auto;
   width: 80%;
-  max-width: 1360px;
+  max-width: 450px;
   @media (min-width: 1080px) {
     position: absolute;
     z-index: 10;
     top: 7px;
-    left: 22%;
+    left: 30%;
     width: 40%;
-    max-width: unset;
   }
   span {
     max-width: 360px;

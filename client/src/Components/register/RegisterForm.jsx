@@ -288,7 +288,7 @@ const checkPasswordCharacters = (e) => {
               id="password"
               type={passwordView}
             />
-            <MiniButton className='input__button'>
+            <MiniButton type='button' className='input__button'>
               <img
                 onClick={handlePasswordView}
                 className="show-btn"
@@ -338,7 +338,7 @@ const checkPasswordCharacters = (e) => {
               id="repeat__password"
               type={passwordRepeatView}
             />
-            <MiniButton className='input__button'>
+            <MiniButton type='button' className='input__button'>
               <img
                 onClick={handlePasswordRepeatView}
                 className="show-btn"
@@ -376,11 +376,11 @@ const checkPasswordCharacters = (e) => {
       </SeparatorOr>
 
       <WrapContainer>
-        <BigButton>
+        <BigButton type='button'>
           <img src={FacebookSvg} alt="" />
           <Text>Register with Facebook</Text>
         </BigButton>
-        <BigButton>
+        <BigButton type='button'>
           <img src={GoogleSvg} alt="" />
           <Text>Register with Google</Text>
         </BigButton>

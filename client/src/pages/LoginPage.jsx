@@ -26,9 +26,7 @@ const LoginPage = () => {
           }))
           navigate('/');
         }
-      }
-        // console.log(res.data)
-        )
+      })
       .catch(err => setError(err?.response?.data?.message || 'There was an error when trying to login'))
   }
 

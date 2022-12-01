@@ -19,20 +19,20 @@ function App() {
     <HashRouter>
       <AppContainer>
         <DefaultNavbar />
-            <Routes>
-              <Route path='/' element={<HomePage/>} />
-              <Route path='/games' element={<GamesPage/>} />
-              <Route path='/login' element={<LoginPage />} />
-              <Route path='/forgotPassword' element={<ForgotPassword />} />
-              <Route path='/createNewPassword' element={<CreateNewPassword />} />
-              <Route path='/register' element={<RegisterPage />} /> 
-              <Route path='/detail/:id' element={<DetailPage/>} /> 
-              <Route element={<ProtectedRoutes />}>
-                <Route path='/cart' element={<Cart />} />
-                <Route path='/library' element={<Library />} />
-                <Route path='/purchases' element={<Purchases />} />
-              </Route>
-            </Routes>
+        <Routes>
+          <Route path='/' element={<HomePage/>} />
+          <Route path='/games' element={<GamesPage/>} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/forgotPassword' element={<ForgotPassword />} />
+          <Route path='/createNewPassword' element={<CreateNewPassword />} />
+          <Route path='/register' element={<RegisterPage />} /> 
+          <Route path='/detail/:id' element={<DetailPage/>} /> 
+          <Route element={<ProtectedRoutes />}>
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/library' element={<Library />} />
+            <Route path='/purchases' element={<Purchases />} />
+          </Route>
+        </Routes>
         <DefaultFooter />
       </AppContainer>
     </HashRouter>
