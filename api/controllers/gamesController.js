@@ -33,7 +33,7 @@ const games = async (req, res) => {
   else platforms = ''
   if (dates) dates = '&dates=' + dates
   else dates = '&dates=2022-01-01,2022-12-31' // del 01/01/2021 a la fecha son 332,147 juegos. del 01/01/2022 a la fecha son 158,949 juegos
-  if (page && typeof page == Number) page = '&page=' + page
+  if (page) page = '&page=' + page // && typeof page == Number
   else page = ''
 
   const options = search + platforms + dates + page
