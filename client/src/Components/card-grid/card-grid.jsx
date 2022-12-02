@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import { Spinner } from '../spinner/spinner'
 
 export const CardGrid = ({ title, games, loading }) => {
-  console.log('data in card-grid', games)
+  
   const settings = {
     dots: false,
     infinite: true,
