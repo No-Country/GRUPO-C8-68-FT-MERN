@@ -5,7 +5,7 @@ export const Header = styled.header`
   height: 100px;
   width: 100%;
   position: fixed;
-  z-index: 20;
+  z-index: 1;
   top: 0;
 `
 export const Nav = styled.nav`

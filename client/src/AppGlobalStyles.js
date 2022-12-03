@@ -38,6 +38,12 @@ export const AppContainer = styled.div`
   .hide {
     opacity: 0;
   }
+
+  /* //! Para quitar centrado con margen con clase centerOff
+  */
+  .centerOff {
+    margin: 0;
+  }
 `
 
 /* //* Títulos
@@ -399,7 +405,14 @@ export const AdvicesContainer = styled.div`
     }
   }
 `
+export const PageContainer = styled.section`
+  position: relative;
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+`
 export const GamesContainer = styled.section`
+  position: relative;
   min-width: 90%;
   max-width: 1440px;
   display: flex;
@@ -427,34 +440,43 @@ export const PageGamesContainer = styled.div`
   }
 `
 export const SearchGamesContainer = styled.div`
-  width: 80%;
+  width: 100%;
   max-width: 450px;
-  @media (min-width: 1080px) {
-    position: absolute;
-    z-index: 10;
-    top: 7px;
-    left: 30%;
-    width: 40%;
+  @media (min-width: 1300px) {
+    pointer-events: none;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100px;
+    max-width: 100%;
+    margin: 0 auto;
   }
   span {
     max-width: 360px;
     display: flex;
     flex-direction: column;
-    position: relative;
-    @media (min-width: 1080px) {
+    @media (min-width: 1300px) {
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 100%;
       width: 100%;
-      max-width: unset;
+      max-width: 1280px;
+      margin: auto auto;
     }
     label {
       font-size: 21px;
       @media (min-width: 600px) {
         font-size: 25px;
       }
-      @media (min-width: 1080px) {
+      @media (min-width: 1300px) {
         display: none;
       }
     }
     input {
+      pointer-events: all;
       box-sizing: border-box;
       margin: 10px 0;
       width: 100%;
@@ -481,9 +503,12 @@ export const SearchGamesContainer = styled.div`
       @media (min-width: 600px) {
         font-size: 20px;
       }
-      @media (min-width: 1080px) {
+      @media (min-width: 1300px) {
         background-color: white;
         color: #9C9797;
+        position: absolute;
+        left: 240px;
+        width: 48.5%;
       }
     }
     .errase__button {
@@ -584,4 +609,4 @@ export const PaginationContainer = styled.div`
     color:rgb(255, 255, 255);
     border-radius:5px;
   }
- `
+`

@@ -1,7 +1,9 @@
-import { Container } from "./styles";
+import { PageContainer } from "../../AppGlobalStyles";
 
 export const Layout = ({children}) => {
     return ( 
-        <Container>{children}</Container>
+        <PageContainer>
+            {children}
+        </PageContainer>
     );
 }

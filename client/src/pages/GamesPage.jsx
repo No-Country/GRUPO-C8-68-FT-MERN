@@ -9,6 +9,7 @@ import {
   Text,
   Subtitle,
   TitlesContainer,
+  PageContainer,
 } from '../AppGlobalStyles'
 import { Spinner } from '../Components/spinner/spinner'
 
@@ -21,7 +22,7 @@ const GamesPage = () => {
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(8)
   const [pagesLength, setPagesLength] = useState(20)
-  const [gamesPerPage, setGamesPerPage] = useState(20)
+  const gamesPerPage = 15
   const [gamesToShow, setGamesToShow] = useState(allGames)
 
   const inicialElement = 0
@@ -71,13 +72,13 @@ const GamesPage = () => {
   }, [search, allGames])
 
   return (
-    <section>
+    <PageContainer>
       <MediumSeparator></MediumSeparator>
       <Search setSearch={setSearch} />
-      <Pagination page={page} setPage={setPage} pagesLength={pagesLength} />
-      <TitlesContainer style={{ maxWidth: '1360px' }}>
+      <TitlesContainer style={{ maxWidth: '1360px' }} className='centerOff'>
         <Subtitle className="color-gray">All Games</Subtitle>
       </TitlesContainer>
+      <Pagination page={page} setPage={setPage} pagesLength={pagesLength} />
 
       {loading ? (
         <Spinner />
@@ -100,7 +101,7 @@ const GamesPage = () => {
           )}
         </GamesContainer>
       )}
-    </section>
+    </PageContainer>
   )
 }
 //
