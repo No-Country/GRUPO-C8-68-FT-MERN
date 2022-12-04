@@ -11,10 +11,9 @@ const HomePage = () => {
 
   //! Se obtienen todos los juegos de la BD
 
- 
-
   useEffect(() => {
-    const URL = 'https://nc8-68backend-production.up.railway.app/bestsellers'
+    const URL =
+      'https://grupo-c8-68-ft-mern-production.up.railway.app/bestsellers'
     axios
       .get(URL)
       .then((res) => {

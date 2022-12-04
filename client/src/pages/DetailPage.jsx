@@ -12,7 +12,7 @@ export const DetailPage = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const URL = `https://nc8-68backend-production.up.railway.app/gamebyid?id=${id}`
+    const URL = `https://grupo-c8-68-ft-mern-production.up.railway.app/gamebyid?id=${id}`
     axios
       .get(URL)
       .then((res) => {
