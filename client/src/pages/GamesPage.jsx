@@ -31,11 +31,12 @@ const GamesPage = () => {
   // console.log('Page', page)
 
   useEffect(() => {
-    const URL =
-      'https://nc8-68backend-production.up.railway.app/games?page=' +
+    const URL = // nuevo https://grupo-c8-68-ft-mern-production.up.railway.app/
+      //viejo  'https://nc8-68backend-production.up.railway.app/games?page=' +
+      'https://grupo-c8-68-ft-mern-production.up.railway.app/ames?page=' +
       page +
       (search ? '&search=' + search : '')
-    console.log('URL',URL)
+    console.log('URL', URL)
     axios
       .get(URL)
       .then((res) => {
@@ -75,7 +76,7 @@ const GamesPage = () => {
     <PageContainer>
       <MediumSeparator></MediumSeparator>
       <Search setSearch={setSearch} />
-      <TitlesContainer style={{ maxWidth: '1360px' }} className='centerOff'>
+      <TitlesContainer style={{ maxWidth: '1360px' }} className="centerOff">
         <Subtitle className="color-gray">All Games</Subtitle>
       </TitlesContainer>
       <Pagination page={page} setPage={setPage} pagesLength={pagesLength} />
