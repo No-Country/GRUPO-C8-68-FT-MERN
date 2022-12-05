@@ -27,7 +27,7 @@ app.use('/games', cors(), routergames)
 app.use('/gamebyid', cors(), routerGameID)
 app.use('/', cors(), routerVarious)
 app.use('/bestsellers', cors(), routerBestSellers)
-app.use('/recuperationmail', cors(), routerForgotPass)
+app.use('/recuperationmail', cors(), routerForgotPass) //
 // app.use('/updatepassword', cors(), routerUpdatePass)
 
 const server = app.listen(PORT, () => {
