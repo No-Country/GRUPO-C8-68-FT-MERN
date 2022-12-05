@@ -33,7 +33,7 @@ const GamesPage = () => {
   useEffect(() => {
     const URL = // nuevo https://grupo-c8-68-ft-mern-production.up.railway.app/
       //viejo  'https://nc8-68backend-production.up.railway.app/games?page=' +
-      'https://grupo-c8-68-ft-mern-production.up.railway.app/ames?page=' +
+      'https://grupo-c8-68-ft-mern-production.up.railway.app/games?page=' +
       page +
       (search ? '&search=' + search : '')
     console.log('URL', URL)
