@@ -1,10 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+
 const hbs = require('hbs')
 const path = require('path')
-const products = require('./routes/products')
-const cart = require('./routes/cart')
+
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
 var bodyParser = require('body-parser')
@@ -21,9 +21,14 @@ const routergames = require('./routes/routerGames')
 const routerVarious = require('./routes/routerVarious')
 const routerGameID = require('./routes/routerGameID')
 const routerBestSellers = require('./routes/routerBestSellers')
+const products = require('./routes/products')
+const cartRouter = require('./routes/routerCart')
 
 const app = express()
 
+const viewController = require('./controllers/viewController')
+
+// borrar *******************************
 app.set('views', path.join(__dirname, 'views'))
 hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine', 'hbs')
@@ -44,13 +49,14 @@ app.use(function (req, res, next) {
   res.locals.session = req.session
   next()
 })
+// ******************************************
 
 app.use(cors())
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/', cart)
+app.use('/', cartRouter) // app.use('/', cart)
 app.use('/user', cors(), userRouter)
 app.use('/games', cors(), routergames)
 app.use('/gamebyid', cors(), routerGameID)
