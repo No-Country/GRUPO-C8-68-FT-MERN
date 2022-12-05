@@ -49,10 +49,10 @@ const games = async (req, res) => {
     const games = []
     const prices = []
 
-    // for (let i = 0; i < results.length; i++) {
-    //   const price = await getPrice(results[i].name)
-    //   prices.push(price)
-    // }
+    for (let i = 0; i < results.length; i++) {
+      const price = await getPrice(results[i].name)
+      prices.push(Number(price))
+    }
 
     results.forEach((e, i) => {
       if (e.platforms) {
@@ -81,7 +81,6 @@ const games = async (req, res) => {
           //   tags: e.tags,
           released: e.released,
           esrb: e.esrb_rating,
-          price: 99.99,
           //   short_screenshots: e.short_screenshots
         })
     })
