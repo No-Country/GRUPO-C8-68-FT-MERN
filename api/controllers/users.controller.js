@@ -10,7 +10,6 @@ const createUser = async (data) => {
   const newUser = await userModel.create({
     user: data.user,
     pass: encryptedPass,
-    // token: null,
   })
 
   return newUser
@@ -18,7 +17,13 @@ const createUser = async (data) => {
 
 const findUser = (data, res) => {
   // create token
-  const token = jwt.sign({ user: data.user }, TOKEN_KEY)
+  const token = jwt.sign(
+    {
+      exp: Math.floor(Date.now() / 1000) + 60 * 60, // dura una hora
+      user: data.user,
+    },
+    TOKEN_KEY
+  )
 
   try {
     userModel.findOne({ user: data.user }, (err, exists) => {
@@ -77,8 +82,22 @@ const allUsers = (req, res) => {
   })
 }
 
+const deleteUser = (req, res) => {
+  const { user } = req.body
+  userModel.deleteMany({ user: user }, (err, result) => {
+    if (err) {
+      res.status(400).send(err)
+    } else {
+      let message = 'User ' + user + ' do not exists in DB'
+      if (result.deletedCount > 0)
+        message = 'Users ' + user + ' deleted: ' + result.deletedCount
+      res.status(200).json({ message: message })
+    }
+  })
+}
 module.exports = {
   registerUser,
   loginUser,
   allUsers,
+  deleteUser,
 }

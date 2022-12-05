@@ -2,13 +2,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-const hbs = require('hbs')
-const path = require('path')
-
-var cookieParser = require('cookie-parser')
-var session = require('express-session')
-var bodyParser = require('body-parser')
-
 require('dotenv').config()
 
 const MONGO_PASS = process.env.MONGO_PASS
@@ -23,7 +16,7 @@ const routerGameID = require('./routes/routerGameID')
 const routerBestSellers = require('./routes/routerBestSellers')
 const routerForgotPass = require('./routes/routerForgotPass')
 const products = require('./routes/products')
-const cartRouter = require('./routes/routerCart')
+const routerCart = require('./routes/routerCart')
 
 
 const app = express()
@@ -35,14 +28,13 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/', cartRouter) // app.use('/', cart)
+app.use('/', cors(), routerVarious)
 app.use('/user', cors(), userRouter)
 app.use('/games', cors(), routergames)
 app.use('/gamebyid', cors(), routerGameID)
-// app.use('/', cors(), routerVarious)
 app.use('/bestsellers', cors(), routerBestSellers)
+app.use('/cart', cors(), routerCart)
 app.use('/recuperationmail', cors(), routerForgotPass) 
-
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening in: https://localhost:${PORT}`)

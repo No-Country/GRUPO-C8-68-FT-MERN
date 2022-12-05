@@ -13,12 +13,9 @@ const game = async (req, res) => {
 
   try {
     const resp = await axios.get(gamesUrl)
-
     const result = resp.data
 
-    // console.log('resp', result)
     let game = {}
-
     // Eliminamos las plataformas android y iOs y las claves no usadas
     if (result.platforms.length > 0) {
       result.platforms = result.platforms.filter((p) => {
@@ -51,7 +48,6 @@ const game = async (req, res) => {
       //   short_screenshots: result.short_screenshots
     }
 
-    console.log('game', game)
     res.status(200).json(game)
   } catch (err) {
     res.status(404).json({ error: err.message })
