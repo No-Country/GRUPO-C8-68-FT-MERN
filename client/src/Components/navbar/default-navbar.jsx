@@ -48,9 +48,9 @@ export const DefaultNavbar = () => {
               </Link>
               </li>
               <li>
-                <a onClick={handleMenuStatus} href="/">
+              <Link onClick={handleMenuStatus} to={'/cart'}>
                   <BsCart size="30px" />Cart
-                </a>
+                 </Link>
               </li>
               {
                 isLoggedIn && 
