@@ -43,6 +43,12 @@ const addOrder = async (req, res) => {
       delivered: delivered,
       payment: payment,
     })
+    // limpiamos el carrito
+    try {
+      await cartModel.updateOne({ user: data.user, cart: [] })
+    } catch (err) {
+      console.log('No existe el carrito')
+    }
     res
       .status(200)
       .json({ message: `order of ${data.user}' created`, newOrder })
