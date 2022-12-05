@@ -21,35 +21,14 @@ const routergames = require('./routes/routerGames')
 const routerVarious = require('./routes/routerVarious')
 const routerGameID = require('./routes/routerGameID')
 const routerBestSellers = require('./routes/routerBestSellers')
+const routerForgotPass = require('./routes/routerForgotPass')
 const products = require('./routes/products')
 const cartRouter = require('./routes/routerCart')
+
 
 const app = express()
 
 const viewController = require('./controllers/viewController')
-
-// borrar *******************************
-app.set('views', path.join(__dirname, 'views'))
-hbs.registerPartials(__dirname + '/views/partials')
-app.set('view engine', 'hbs')
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser())
-app.use(
-  session({
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: true,
-  })
-)
-
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(function (req, res, next) {
-  res.locals.session = req.session
-  next()
-})
-// ******************************************
 
 app.use(cors())
 
@@ -62,8 +41,8 @@ app.use('/games', cors(), routergames)
 app.use('/gamebyid', cors(), routerGameID)
 // app.use('/', cors(), routerVarious)
 app.use('/bestsellers', cors(), routerBestSellers)
-app.get('/saveitem', products.create)
-app.post('/additem', products.store)
+app.use('/recuperationmail', cors(), routerForgotPass) 
+
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening in: https://localhost:${PORT}`)
