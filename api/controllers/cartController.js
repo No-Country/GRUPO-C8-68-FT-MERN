@@ -36,6 +36,7 @@ const addOrder = async (req, res) => {
 
   if (data.user) {
     const newOrder = await orderModel.create({
+      user: data.user,
       date: Date(),
       desc: desc,
       games: games,
