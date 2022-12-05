@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
 var orderSchema = mongoose.Schema({
-  id: Number,
   date: Date,
   desc: String,
   type: String,
