@@ -42,6 +42,17 @@ app.use('/allcarts', cors(), (req, res) => {
     }
   })
 })
+// provisional para ver todas los ordenes de la BD
+const orderModel = require('./models/orders')
+app.use('/allorders', cors(), (req, res) => {
+  orderModel.find({}, (err, exists) => {
+    if (err) {
+      res.status(400).json({ message: err })
+    } else {
+      res.status(200).json(exists)
+    }
+  })
+})
 
 app.use('/recuperationmail', cors(), routerForgotPass)
 

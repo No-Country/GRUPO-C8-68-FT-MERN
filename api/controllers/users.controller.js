@@ -12,6 +12,7 @@ const createUser = async (data) => {
   const newUser = await userModel.create({
     user: data.user,
     pass: encryptedPass,
+    date: Date(),
   })
 
   // Le creamos un carrito

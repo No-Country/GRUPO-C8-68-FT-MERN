@@ -52,7 +52,7 @@ const addOrder = async (req, res) => {
     res
       .status(200)
       .json({ message: `order of ${data.user}' created`, newOrder })
-  } else res.status(400).json({ message: data.message })
+  } else res.status(400).json({ message: data.message }) //
 }
 
 module.exports = { getCart, addCart, addOrder }
