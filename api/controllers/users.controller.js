@@ -1,4 +1,6 @@
 const userModel = require('../models/user')
+const cartModel = require('../models/carts')
+
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
@@ -11,6 +13,14 @@ const createUser = async (data) => {
     user: data.user,
     pass: encryptedPass,
   })
+
+  // Le creamos un carrito
+  const newCart = await cartModel.create({
+    user: data.user,
+    cart: [],
+    date: Date(),
+  })
+  console.log('Cart for ', newUser.user, ' created: ', newCart)
 
   return newUser
 }
