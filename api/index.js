@@ -14,8 +14,10 @@ const routergames = require('./routes/routerGames')
 const routerVarious = require('./routes/routerVarious')
 const routerGameID = require('./routes/routerGameID')
 const routerBestSellers = require('./routes/routerBestSellers')
+const routerForgotPass = require('./routes/routerForgotPass')
 const products = require('./routes/products')
 const routerCart = require('./routes/routerCart')
+
 
 const app = express()
 
@@ -32,8 +34,7 @@ app.use('/games', cors(), routergames)
 app.use('/gamebyid', cors(), routerGameID)
 app.use('/bestsellers', cors(), routerBestSellers)
 app.use('/cart', cors(), routerCart)
-app.get('/saveitem', products.create)
-app.post('/additem', products.store)
+app.use('/recuperationmail', cors(), routerForgotPass) 
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening in: https://localhost:${PORT}`)
