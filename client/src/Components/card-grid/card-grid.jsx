@@ -35,15 +35,15 @@ export const CardGrid = ({ title, games, loading }) => {
       {
         breakpoint: 759,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
       {
         breakpoint: 680,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
