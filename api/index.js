@@ -18,11 +18,7 @@ const routerForgotPass = require('./routes/routerForgotPass')
 const products = require('./routes/products')
 const routerCart = require('./routes/routerCart')
 
-
 const app = express()
-
-const viewController = require('./controllers/viewController')
-
 app.use(cors())
 
 app.use(express.json())
@@ -34,7 +30,20 @@ app.use('/games', cors(), routergames)
 app.use('/gamebyid', cors(), routerGameID)
 app.use('/bestsellers', cors(), routerBestSellers)
 app.use('/cart', cors(), routerCart)
-app.use('/recuperationmail', cors(), routerForgotPass) 
+
+// provisional para ver todos los carritos de la BD
+const cartModel = require('./models/carts')
+app.use('/allcarts', cors(), (req, res) => {
+  cartModel.find({}, (err, exists) => {
+    if (err) {
+      res.status(400).json({ message: err })
+    } else {
+      res.status(200).json(exists)
+    }
+  })
+})
+
+app.use('/recuperationmail', cors(), routerForgotPass)
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening in: https://localhost:${PORT}`)
