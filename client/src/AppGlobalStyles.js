@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const AppContainer =  styled.div`
+export const AppContainer = styled.div`
   color: white;
-  min-height: 100vh;
-  position: relative;
-  padding-top: 100px;
-  padding-bottom: 200px;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  padding-top: 130px;
+  padding-bottom: 150px;
   background-color: #141518;
 
   /* //! Para elegir tipo de fuente añadiendo un className
@@ -37,11 +38,17 @@ export const AppContainer =  styled.div`
   .hide {
     opacity: 0;
   }
+
+  /* //! Para quitar centrado con margen con clase centerOff
+  */
+  .centerOff {
+    margin: 0;
+  }
 `
 
 /* //* Títulos
 */
-export const Title =  styled.h1`
+export const Title = styled.h1`
   margin: 0 auto;
   width: fit-content;
   font-size: 26px;
@@ -53,7 +60,7 @@ export const Title =  styled.h1`
 
 /* //* Subtítulos
 */
-export const Subtitle =  styled.h2 `
+export const Subtitle = styled.h2`
   font-size: 21px;
   font-weight: 400;
   @media (min-width: 600px) {
@@ -63,7 +70,7 @@ export const Subtitle =  styled.h2 `
 
 /* //* Texto
 */
-export const Text =  styled.p`
+export const Text = styled.p`
   font-size: 16px;
   transition: color .4s ease, opacity .4s ease;
   @media (min-width: 600px) {
@@ -241,7 +248,7 @@ export const Form = styled.div`
 
 /* //* Botones
 */
-  export const BigButton = styled.button`
+export const BigButton = styled.button`
   height: 86px;
   width: 48.3%;
   margin: 6px;
@@ -278,7 +285,7 @@ export const Form = styled.div`
       display: none;
     }
   }
-` 
+`
 export const MediumButton = styled.button`
   height: 62px;
   min-width: 197px;
@@ -308,7 +315,7 @@ export const MediumButton = styled.button`
       display: none;
     }
   }
-` 
+`
 export const MiniButton = styled.button`
   display: flex;
   align-items: center;
@@ -333,7 +340,7 @@ export const MiniButton = styled.button`
 export const TitlesContainer = styled.div`
   width: 80%;
   max-width: 620px;
-  margin: 20px auto;
+  margin: 0 auto;
 `
 export const SmallSeparator = styled.div`
   width: 100%;
@@ -398,51 +405,85 @@ export const AdvicesContainer = styled.div`
     }
   }
 `
-export const GamesContainer = styled.section`
+export const PageContainer = styled.section`
+  position: relative;
   width: 90%;
   max-width: 1440px;
+  margin: 0 auto;
+`
+export const GamesContainer = styled.section`
+  position: relative;
+  min-width: 90%;
+  max-width: 1440px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 40px auto;
   row-gap: 60px;
 `
+export const PageGamesContainer = styled.div`
+  div {
+    box-sizing: border-box;
+    margin: 30px 0;
+    width: 30%;
+    padding: 1.2rem 1.2rem;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    background: rgba(217, 217, 217, 0.3);
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    :focus {
+      outline: 1px solid #fff6;
+    }
+  }
+`
 export const SearchGamesContainer = styled.div`
-  margin: 0 auto;
-  width: 80%;
-  max-width: 1360px;
-  @media (min-width: 1080px) {
-    position: absolute;
-    z-index: 10;
-    top: 7px;
-    left: 22%;
-    width: 40%;
-    max-width: unset;
+  width: 100%;
+  max-width: 450px;
+  @media (min-width: 1300px) {
+    pointer-events: none;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100px;
+    max-width: 100%;
+    margin: 0 auto;
   }
   span {
     max-width: 360px;
     display: flex;
     flex-direction: column;
-    position: relative;
-    @media (min-width: 1080px) {
+    @media (min-width: 1300px) {
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 100%;
       width: 100%;
-      max-width: unset;
+      max-width: 1280px;
+      margin: auto auto;
     }
     label {
       font-size: 21px;
       @media (min-width: 600px) {
         font-size: 25px;
       }
-      @media (min-width: 1080px) {
+      @media (min-width: 1300px) {
         display: none;
       }
     }
     input {
+      pointer-events: all;
       box-sizing: border-box;
       margin: 10px 0;
       width: 100%;
       padding: 1.2rem 1.2rem;
       color: white;
       border: none;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
       border-radius: 20px;
       background: rgba(217, 217, 217, 0.3);
       font-size: 16px;
@@ -462,9 +503,12 @@ export const SearchGamesContainer = styled.div`
       @media (min-width: 600px) {
         font-size: 20px;
       }
-      @media (min-width: 1080px) {
+      @media (min-width: 1300px) {
         background-color: white;
         color: #9C9797;
+        position: absolute;
+        left: 240px;
+        width: 48.5%;
       }
     }
     .errase__button {
@@ -502,5 +546,67 @@ export const SearchGamesContainer = styled.div`
       }
     }
   }
-  
+`
+
+export const FooterContainer = styled.footer`
+  height: 120px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  section {
+    background: rgba(105,129,138,0.65);
+    border-top: 1px solid #fff6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px 5px 0 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      li {
+        margin: 0 20px;
+        a {
+          color: white;
+          padding: 0px 12px;
+          :hover {
+            color: rgb(7, 3, 43);
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+`
+export const PaginationContainer = styled.div`        
+  .pagination{
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    display: flex;
+    gap:10px;
+    align-items: center;
+  }
+  .pagination__container{
+    display: flex;
+    gap:35px;
+  }
+  .pagination__page,
+  .pagination__next,
+  .pagination__prev{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center; 
+    cursor: pointer;   
+  }
+  .pagination__active{
+    background-color: rgb(151, 15, 201);
+    color:rgb(255, 255, 255);
+    border-radius:5px;
+  }
 `
