@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 var userSchema = mongoose.Schema({
   user: String,
   pass: String,
+  date: Date,
 })
 
 module.exports = mongoose.model('users', userSchema)
