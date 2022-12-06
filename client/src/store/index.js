@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import userReducer from './slices/user.slice'
+import cart from './slices/cart.slice'
 
 const localStorageMiddleware = ({ getState }) => {
   return next => action => {
@@ -18,6 +19,7 @@ const reHydrateStore = () => {
 export default configureStore({
   reducer: {
     user: userReducer,
+    cart
   },
   preloadedState: reHydrateStore(),
   middleware: getDefaultMiddleware =>
