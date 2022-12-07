@@ -10,17 +10,29 @@ export const DefaultFooter = () => {
       <section>
         <ul>
           <li>
-            <a href="#!">
+            <a
+              href="https://www.facebook.com/profile.php?id=100088439772359"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaFacebookF size="30px" />
             </a>
           </li>
           <li>
-            <a href="#!">
+            <a
+              href="https://twitter.com/ncgames868"
+              target="_blank"
+              rel="noreferrer"
+            >
               <BsTwitter size="30px" />
             </a>
           </li>
           <li>
-            <a href="#!">
+            <a
+              href="https://www.instagram.com/ncgames868/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <BsInstagram size="30px" />
             </a>
           </li>
