@@ -82,7 +82,7 @@ const GamesPage = () => {
                 <Card
                   key={game.id}
                   title={game.name}
-                  price={game.price}
+                  price={game.price.toFixed(2)}
                   img={game.background_image}
                   id={game.id}
                 />
