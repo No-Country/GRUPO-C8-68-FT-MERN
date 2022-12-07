@@ -72,7 +72,7 @@ const games = async (req, res) => {
 
       if (e.platforms.length > 0)
         games.push({
-          price: (Math.random() * 60 + 10).toFixed(2), // prices[i],
+          price: Math.random() * 60 + 10, // .toFixed(2), // prices[i],
           id: e.id,
           name: e.name,
           background_image: e.background_image,
