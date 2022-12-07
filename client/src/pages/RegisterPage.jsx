@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   Title,
   LinkedText,
@@ -13,6 +13,8 @@ const RegisterPage = () => {
   const [loginSuccess, setLoginSuccess] = useState(false)
   const [error, setError] = useState('')
 
+  const navigate = useNavigate()
+
   const register = (e) => {
     const URL =
       'https://grupo-c8-68-ft-mern-production.up.railway.app/user/register'
@@ -21,18 +23,18 @@ const RegisterPage = () => {
       user: e.target.email.value,
       pass: e.target.password.value,
     }
-
-    console.log(data)
-
-    axios
-      .post(URL, data)
-      .then((res) => setLoginSuccess(true))
+    axios.post(URL, data)
+      .then(() => {
+        setLoginSuccess(true)
+        navigate('/login')
+      })
       .catch((err) =>
         setError(
           err?.response?.data?.message ||
             'There was an error when trying to register'
         )
       )
+
   }
 
   return (

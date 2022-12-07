@@ -12,6 +12,7 @@ import {
   PageContainer,
 } from '../AppGlobalStyles'
 import { Spinner } from '../Components/spinner/spinner'
+import { useSelector } from 'react-redux'
 
 const GamesPage = () => {
   //! Se obtienen todos los juegos de la BD
@@ -26,30 +27,16 @@ const GamesPage = () => {
   const [gamesToShow, setGamesToShow] = useState(allGames)
 
   const inicialElement = 0
-  //const finalElement = page * gamePorPage
   const finalElement = gamesPerPage
-  // console.log('Page', page)
 
   useEffect(() => {
-    const URL = // nuevo https://grupo-c8-68-ft-mern-production.up.railway.app/
-      //viejo  'https://nc8-68backend-production.up.railway.app/games?page=' +
-      'https://grupo-c8-68-ft-mern-production.up.railway.app/games?page=' +
+    const URL = 'https://grupo-c8-68-ft-mern-production.up.railway.app/games?page=' +
       page +
       (search ? '&search=' + search : '')
     console.log('URL', URL)
     axios
       .get(URL)
       .then((res) => {
-        res.data.games.forEach((e) => {
-          // console.log(
-          //   'platforms in GamesPage',
-          //   e.name,
-          //   e.platforms,
-          //   'id: ',
-          //   e.id
-          // )
-        })
-
         setAllGames(res.data.games)
         setGamesToShow(res.data.games)
         setLoading(false)
@@ -72,10 +59,14 @@ const GamesPage = () => {
     }
   }, [search, allGames])
 
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
+
+  console.log(isLoggedIn)
+
   return (
     <PageContainer>
       <MediumSeparator></MediumSeparator>
-      <Search setSearch={setSearch} />
+      <Search setSearch={setSearch} isLoggedIn={isLoggedIn} />
       <TitlesContainer style={{ maxWidth: '1360px' }} className="centerOff">
         <Subtitle className="color-gray">All Games</Subtitle>
       </TitlesContainer>
