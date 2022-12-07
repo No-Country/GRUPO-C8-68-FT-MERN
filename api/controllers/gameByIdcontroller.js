@@ -44,7 +44,7 @@ const game = async (req, res) => {
       //   tags: result.tags,
       released: result.released,
       esrb: result.esrb_rating,
-      price: (Math.random() * 60 + 10).toFixed(2),
+      price: Math.random() * 60 + 10, //.toFixed(2),
       //   short_screenshots: result.short_screenshots
     }
 

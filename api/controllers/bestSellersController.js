@@ -35,7 +35,7 @@ const games = (req, res) => {
       })
       recommended[i].categories = categories
     }
-    recommended[i].price = (Math.random() * 60 + 10).toFixed(2)
+    recommended[i].price = Math.random() * 60 + 10 // .toFixed(2) // en front lo convierten
   })
 
   // res.json({ result1, result2 })
