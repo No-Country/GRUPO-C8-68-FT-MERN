@@ -108,9 +108,9 @@ export const HeaderLinks = styled.ul`
         color: black;
         font-size: 20px;
         padding: 0px 12px;
-        transition: transform 0.1s ease;
+        transition: transform 0.3s ease;
         :hover {
-          transform: scale(1.03);
+          transform: scale(1.04);
         }
       }
     }

@@ -15,6 +15,9 @@ import { Spinner } from '../Components/spinner/spinner'
 import { useSelector } from 'react-redux'
 
 const GamesPage = () => {
+
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
+
   //! Se obtienen todos los juegos de la BD
 
   const [allGames, setAllGames] = useState([])
@@ -58,10 +61,6 @@ const GamesPage = () => {
       )
     }
   }, [search, allGames])
-
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
-
-  console.log(isLoggedIn)
 
   return (
     <PageContainer>
