@@ -11,6 +11,13 @@ align-items: center;
 width: 300px;
 height: 200px;
 width: 30%;
+@media (max-width: 768px){
+    width: 50%;
+}
+@media (max-width: 460px){
+    width: 100%;
+    margin-top: 10px;
+}
 p{
     font-family: 'Inter';
     font-style: normal;

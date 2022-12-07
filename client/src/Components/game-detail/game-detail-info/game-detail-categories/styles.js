@@ -6,6 +6,12 @@ export const GameDetailCategoriesContainer = styled.div`
     justify-content: start;
     align-items: flex-start;
     width: 70%;
+    @media (max-width: 768px){
+        width: 50%;
+    }
+    @media (max-width: 460px){
+        width: 100%;
+    }
     .title-categories{
         font-family: 'Inter';
         font-style: normal;

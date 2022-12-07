@@ -6,7 +6,7 @@ export const GameDetailCategories = ({release, categories=[]}) => {
     <GameDetailCategoriesContainer>
         <p className="title-categories">Categories</p>
             <CategoriesContainer>
-                {categories.map(item=> (<li key={item.id}><p>{item.name}</p></li> ))}
+                {categories.map(item=> (<li key={item}><p>{item}</p></li> ))}
             </CategoriesContainer>
         <p className="title-categories">Release date:</p>
         <GameReleaseDate>{release}</GameReleaseDate>
