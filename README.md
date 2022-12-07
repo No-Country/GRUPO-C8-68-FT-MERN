@@ -1,13 +1,14 @@
-# GRUPO-C8-68-FT-MERN
+# NCGAMES
 
-Titulo de Proyecto: NCGAMES
+## GRUPO-C8-68-FT-MERN
 
-Descripción de Proyecto: El proyecto es un ecommerce de videojuegos.
+## El proyecto es un ecommerce de videojuegos.
 
-Stack/Tecnologías
+## Stack/Tecnologías
 
-    Backend:
-      "axios": "^1.1.3",
+### Backend
+
+    "axios": "^1.1.3",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -17,9 +18,10 @@ Stack/Tecnologías
     "mongoose": "^6.7.2",
     "morgan": "^1.10.0",
     "nodemailer": "^6.8.0"
-    
-    Frontend:
-      "@reduxjs/toolkit": "^1.9.0",
+
+### Frontend
+
+    "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -34,44 +36,85 @@ Stack/Tecnologías
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4"      
-    
-Integrantes del equipo
+    "web-vitals": "^2.1.4"
 
-  Team leader: Ignacio Rocha - https://github.com/ignacio19975 - https://www.linkedin.com/in/ignacio-rocha/
-  
-  Frontend: 
-    Aria - https://github.com/AriaGT,
-    Gloria jisseth Cuevas - https://github.com/GloriaCuba - https://www.linkedin.com/in/jisseth-cuevas/
-    y Fabian Romano - https://github.com/fabianeromano.
-  
-  Backend: 
-    María Belén Manterola (Belu) - https://github.com/belmant - https://www.linkedin.com/in/belmant/,
-    Cristian - https://github.com/CristianSRR126
-    y Francisco Jimenez - https://github.com/FranJBDev
-    
-  UI/UX: 
-    Milagros Silva - https://www.linkedin.com/in/milagros-silva-b4747a1b9/.
-    
-  Testing:
-    Jesus Eduardo Quintero - https://www.linkedin.com/in/jesuseduardoquintero/.
+## Integrantes del equipo
 
-Link del Deploy: http://ncgames.ml
+Team leader:
 
-Rutas de Backend (in process)
+Ignacio Rocha
+https://github.com/ignacio19975
+https://www.linkedin.com/in/ignacio-rocha/
 
-/user/register POST - recibe un objeto { "user": "correo", "pass": "contraseña" } y crea un nuevo usuario en la base de datos
+### Frontend
 
-/user/login POST - recibe un objeto { "user": "correo", "pass": "contraseña" } y revisa si coincide con un usuario y contraseña en la base de datos
+Gloria jisseth Cuevas
+https://github.com/GloriaCuba
+https://www.linkedin.com/in/jisseth-cuevas/
 
-/user/allusers GET - Devuelve un array con los todos los ids, usuarios y contraseñas de la base de datos
+Alessandro Fernandez Medrano
+https://github.com/AriaGT
+https://www.linkedin.com/in/alessandro-fernandez-medrano-3033aa24b/
 
-/games GET - Devuelve un array con todos los juegos del 2022. Opcionalmente puede recibir las querys:
+Fabian Edgardo Romano
+https://github.com/fabianeromano
+https://www.linkedin.com/in/fabian-edgardo-romano/
 
-               search: Una o varias palabras separadas por el signo + o espacio. Ejemplos.
+### Backend:
+
+María Belén Manterola
+https://github.com/belmant
+https://www.linkedin.com/in/belmant/
+
+Francisco Jimenez
+https://github.com/FranJBDev
+https://www.linkedin.com/in/franjb/
+
+### Testing:
+
+Jesus Eduardo Quintero - https://www.linkedin.com/in/jesuseduardoquintero/.
+
+## Dominio: http://ncgames.ml
+
+## Rutas de Backend
+
+## /user/register
+
+### Peticion POST
+
+    Recibe un objeto
+
+    { "user": "correo", "pass": "contraseña" }
+
+    y crea un nuevo usuario en la base de datos
+
+## /user/login
+
+### Peticion POST
+
+    Recibe un objeto
+
+    { "user": "correo", "pass": "contraseña" }
+
+    y revisa si coincide con un usuario y contraseña en la base de datos
+
+## /user/allusers
+
+### Peticion GET
+
+    Devuelve un array con los todos los ids, usuarios y contraseñas de la base de datos.
+
+## /games
+
+### Peticion GET
+
+    Devuelve un array con todos los juegos del 2022. Opcionalmente puede recibir las querys:
+
+          search: Una o varias palabras separadas por el signo + o espacio. Ejemplos.
                /games?search=pokemon+go
                /games?search=walking+dead
-               el tamaño minimo de las palabras es de dos letras. Ejemplo /games?search=ab
+
+          el tamaño minimo de las palabras es de dos letras. Ejemplo /games?search=ab
 
                platforms: Uno o varios numeros separados por comas que representan las plataformas:
                 1: Xbox One, 4: PC, 5: macOS, 6: Linux, 7: Nintendo Switch,
@@ -82,8 +125,12 @@ Rutas de Backend (in process)
 
                dates: dos fechas separadas por coma que representan un rango, backend devolvera un array de juegos
 
-/gamebyid
-/categories
-/publishers
-/platforms
-/bestsellers
+## /gamebyid
+
+## /categories
+
+## /publishers
+
+## /platforms
+
+## /bestsellers
