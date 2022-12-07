@@ -5,10 +5,23 @@ import GoogleSvg from '../../IconsSvg/GoogleSvg/GoogleSvg.svg'
 import FacebookSvg from '../../IconsSvg/FacebookSvg/FacebookSvg.svg'
 import EyeSlash from '../../IconsSvg/EyeSlash/EyeSlash.svg'
 import { Link } from 'react-router-dom'
-import { Subtitle, Title, Text, LinkedText, Form, AdvicesContainer, BigButton, MediumButton, MiniButton, SmallSeparator, SeparatorOr, WrapContainer, TitlesContainer } from '../../AppGlobalStyles.js'
+import {
+  Subtitle,
+  Title,
+  Text,
+  LinkedText,
+  Form,
+  AdvicesContainer,
+  BigButton,
+  MediumButton,
+  MiniButton,
+  SmallSeparator,
+  SeparatorOr,
+  WrapContainer,
+  TitlesContainer,
+} from '../../AppGlobalStyles.js'
 
 const Login = ({ handleSubmit, submit, register, error }) => {
-
   const [passwordView, setPasswordView] = useState('password')
 
   const handlePasswordView = () => {
@@ -25,30 +38,30 @@ const Login = ({ handleSubmit, submit, register, error }) => {
     opacity: 'hide',
     message: 'Empty e-mail!',
     xmark: 'hide',
-    check: 'hide'
+    check: 'hide',
   })
 
   const checkEmail = (e) => {
     let currentEmail = e.target.value
-    let regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    let regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
 
-    if(currentEmail.length === 0) {
+    if (currentEmail.length === 0) {
       setCheckEmailData({
         height: 0,
         color: false,
         opacity: 'hide',
         message: 'Empty e-mail!',
         xmark: 'hide',
-        check: 'hide'
+        check: 'hide',
       })
-    } else if(regex.test(currentEmail)) {
+    } else if (regex.test(currentEmail)) {
       setCheckEmailData({
         height: '30px',
         color: '#4CAF50',
         opacity: false,
         message: 'Correct e-mail!',
         xmark: 'hide',
-        check: ''
+        check: '',
       })
     } else {
       setCheckEmailData({
@@ -57,7 +70,7 @@ const Login = ({ handleSubmit, submit, register, error }) => {
         opacity: false,
         message: 'Incorrect e-mail!',
         xmark: '',
-        check: 'hide'
+        check: 'hide',
       })
     }
   }
@@ -69,23 +82,31 @@ const Login = ({ handleSubmit, submit, register, error }) => {
     color: '#FF3D00',
     opacity: 'hide',
     message: 'Incorrect e-mail or password!',
-    xmark: 'hide'
+    xmark: 'hide',
   }
 
   return (
     <section>
       <TitlesContainer>
-        <Title className='color-gray'>¡Welcome!</Title>
+        <Title className="color-gray">¡Welcome!</Title>
         <div>
-          <Subtitle className='color-gray'>Log in</Subtitle>
-          <LinkedText className='color-gray'>New user? <Link to={'/register'}>Create account</Link></LinkedText>
+          <Subtitle className="color-gray">Log in</Subtitle>
+          <LinkedText className="color-gray">
+            New user? <Link to={'/register'}>Create account</Link>
+          </LinkedText>
         </div>
       </TitlesContainer>
       <Form>
         <form onSubmit={handleSubmit(submit)}>
           <label htmlFor="email">Email</label>
-          <input onChange={checkEmail} className="email__input-container" id="email" type="email" {...register('user')} />
-          <AdvicesContainer style={{height: checkEmailData.height}}>
+          <input
+            onChange={checkEmail}
+            className="email__input-container"
+            id="email"
+            type="email"
+            {...register('user')}
+          />
+          <AdvicesContainer style={{ height: checkEmailData.height }}>
             <span>
               <div>
                 <img
@@ -99,21 +120,22 @@ const Login = ({ handleSubmit, submit, register, error }) => {
                   alt="check"
                 />
               </div>
-              <Text className={checkEmailData.opacity} style={{ color: checkEmailData.color }}>{checkEmailData.message}</Text>
+              <Text
+                className={checkEmailData.opacity}
+                style={{ color: checkEmailData.color }}
+              >
+                {checkEmailData.message}
+              </Text>
             </span>
           </AdvicesContainer>
           <label htmlFor="password">Password</label>
           <div className="password__input-container">
             <input id="password" type={passwordView} {...register('pass')} />
-            <MiniButton type='button' className='input__button'>
-              <img
-                onClick={handlePasswordView}
-                src={EyeSlash}
-                alt="EyeSlash"
-              />
+            <MiniButton type="button" className="input__button">
+              <img onClick={handlePasswordView} src={EyeSlash} alt="EyeSlash" />
             </MiniButton>
           </div>
-          <AdvicesContainer style={{height: credentialsError.height}}>
+          <AdvicesContainer style={{ height: credentialsError.height }}>
             <span>
               <div>
                 <img
@@ -122,16 +144,23 @@ const Login = ({ handleSubmit, submit, register, error }) => {
                   alt="error"
                 />
               </div>
-              <Text className={credentialsError.opacity} style={{ color: credentialsError.color }}>{credentialsError.message}</Text>
+              <Text
+                className={credentialsError.opacity}
+                style={{ color: credentialsError.color }}
+              >
+                {credentialsError.message}
+              </Text>
             </span>
           </AdvicesContainer>
           {error && <p>{error}</p>}
-          <MediumButton className='color-skyblue font-bold'>LOGIN</MediumButton>
+          <MediumButton className="color-skyblue font-bold">LOGIN</MediumButton>
         </form>
 
         <SmallSeparator></SmallSeparator>
 
-        <Link className='font-light' to='/forgotPassword'>Forgot Password?</Link>
+        <Link className="font-light" to="/forgotPassword">
+          Forgot Password?
+        </Link>
 
         <SeparatorOr>
           <div className="line-left"></div>
@@ -139,7 +168,7 @@ const Login = ({ handleSubmit, submit, register, error }) => {
           <div className="line-right"></div>
         </SeparatorOr>
 
-        <WrapContainer>
+        {/* <WrapContainer>
           <BigButton type='button'>
             <img src={FacebookSvg} alt="" />
             <Text>Continue with Facebook</Text>
@@ -148,7 +177,7 @@ const Login = ({ handleSubmit, submit, register, error }) => {
             <img src={GoogleSvg} alt="" />
             <Text>Continue with Google</Text>
           </BigButton>
-        </WrapContainer>
+        </WrapContainer> */}
       </Form>
     </section>
   )
