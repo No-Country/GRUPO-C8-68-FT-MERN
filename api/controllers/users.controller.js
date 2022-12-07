@@ -45,7 +45,7 @@ const findUser = (data, res) => {
           if (result) res.status(201).json({ token: token })
           else res.status(400).json({ message: 'Invalid credencials' })
         })
-      } else res.status(400).json({ message: "User don't exists" })
+      } else res.status(400).json({ message: "User doesn't exist" })
     })
   } catch (err) {
     res.status(400).json({ message: err.message })
