@@ -1,6 +1,6 @@
 const getToken = () => {
-  const token = JSON.parse(localStorage.getItem('applicationState')).user.user
-    .token
+  const token = JSON.parse(localStorage?.getItem('applicationState'))?.user
+    ?.user?.token
   if (token)
     return {
       token,
