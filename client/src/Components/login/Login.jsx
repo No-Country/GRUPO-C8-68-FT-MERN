@@ -162,11 +162,11 @@ const Login = ({ handleSubmit, submit, register, error }) => {
           Forgot Password?
         </Link>
 
-        <SeparatorOr>
+        {/* <SeparatorOr>
           <div className="line-left"></div>
           <Text>Or</Text>
           <div className="line-right"></div>
-        </SeparatorOr>
+        </SeparatorOr> */}
 
         {/* <WrapContainer>
           <BigButton type='button'>
