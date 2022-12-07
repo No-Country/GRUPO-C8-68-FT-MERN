@@ -4,6 +4,16 @@ export const GameDetailContainer = styled.div`
 padding: 0 20px;
 section{
     display: flex;
+    @media (max-width: 768px) {
+        flex-direction: column;
+            justify-content: center;
+            align-items: center;
+  }
+  @media (max-width: 460px) {
+    flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
 }
 
 `
