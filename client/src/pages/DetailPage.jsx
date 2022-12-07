@@ -10,10 +10,13 @@ import { addToCart } from '../store/slices/cart.slice'
 import { useCallback } from 'react'
 
 const addToUserCart = (token, cart) => {
-  return axios.post('https://grupo-c8-68-ft-mern-production.up.railway.app/cart/add', {
-    token,
-    games: cart
-  });
+  return axios.post(
+    'https://grupo-c8-68-ft-mern-production.up.railway.app/cart/add',
+    {
+      token,
+      games: cart,
+    }
+  )
 }
 
 export const DetailPage = () => {
@@ -22,16 +25,16 @@ export const DetailPage = () => {
   const [loading, setLoading] = useState(true)
   const [updateCart, setUpdateCart] = useState(false)
   const dispatch = useDispatch()
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const token = useSelector((state) => state.user.user.token)
   const cart = useSelector((state) => state.cart.cart)
 
   const handleAddToCart = useCallback(() => {
     if (token) {
       dispatch(addToCart(game.id))
-      setUpdateCart(true);
+      setUpdateCart(true)
     } else {
-      navigate('/login');
+      navigate('/login')
     }
   }, [game?.id, navigate, token, dispatch])
 
@@ -40,7 +43,7 @@ export const DetailPage = () => {
       dispatch(addToCart(game.id))
       navigate('/cart')
     } else {
-      navigate('/login');
+      navigate('/login')
     }
   }, [game?.id, navigate, token, dispatch])
 
@@ -58,8 +61,8 @@ export const DetailPage = () => {
   useEffect(() => {
     if (updateCart) {
       addToUserCart(token, cart).then(() => {
-        setUpdateCart(false);
-      });
+        setUpdateCart(false)
+      })
     }
   }, [updateCart, token, cart])
 
@@ -73,7 +76,7 @@ export const DetailPage = () => {
           <GameDetail
             img={game.background_image}
             title={game.name}
-            price={game.price}
+            price={game.price.toFixed(2)}
             release={game.released}
             description={game.description}
             categories={game.categories}
