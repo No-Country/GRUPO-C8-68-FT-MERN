@@ -53,6 +53,7 @@ export const DetailPage = () => {
         setLoading(false)
       })
       .catch((err) => console.log(err.data))
+      
   }, [id])
 
   useEffect(() => {
