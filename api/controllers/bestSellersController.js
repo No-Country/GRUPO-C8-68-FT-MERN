@@ -7,13 +7,13 @@ const games = (req, res) => {
     const categories = []
     if (b?.platforms) {
       b.platforms.forEach((e) => {
-        platforms.push({ name: e.platform.name })
+        if (e.platform?.name) platforms.push({ name: e.platform?.name })
       })
       bestSellers[i].platforms = platforms
     }
     if (b?.categories) {
       b.categories.forEach((e) => {
-        categories.push({ name: e.name })
+        if (e?.name) categories.push({ name: e.name })
       })
       bestSellers[i].categories = categories
     }
@@ -25,13 +25,13 @@ const games = (req, res) => {
     const categories = []
     if (b?.platforms) {
       b.platforms.forEach((e) => {
-        platforms.push({ name: e.platform.name })
+        if (e.platform?.name) platforms.push({ name: e.platform?.name })
       })
       recommended[i].platforms = platforms
     }
     if (b?.categories) {
       b.categories.forEach((e) => {
-        categories.push({ name: e.name })
+        if (e?.name) categories.push({ name: e.name })
       })
       recommended[i].categories = categories
     }
@@ -39,7 +39,7 @@ const games = (req, res) => {
   })
 
   // res.json({ result1, result2 })
-  res.json({ bestSellers, recommended })
+  res.json({ bestsellers: bestSellers, recommended })
 }
 
 module.exports = games
