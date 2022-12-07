@@ -1,19 +1,19 @@
 import { CartSumaryContainer } from './styles'
 
-const CartSumary = () => {
+const CartSumary = ({games, total}) => {
   return (
     <CartSumaryContainer>
       <p>Sumary</p>
       <table>
         <tbody>
-          <tr>
+          {games.map(game => (<tr key={game.id}>
             <td>1 Product</td>
-            <td>$ 500.99</td>
-          </tr>
+            <td>$ {game.price.toFixed(2)}</td>
+          </tr>))}
          
           <tr>
             <td>Total: </td>
-            <td>$ 1500.99</td>
+            <td>$ {total.toFixed(2)}</td>
           </tr>
         </tbody>
       </table>

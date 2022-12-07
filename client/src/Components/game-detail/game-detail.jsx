@@ -14,6 +14,8 @@ export const GameDetail = ({
   categories,
   price,
   description,
+  addToCart,
+  buyGame
 }) => {
   return (
     <GameDetailContainer>
@@ -25,6 +27,8 @@ export const GameDetail = ({
             release={release}
             categories={categories}
             price={price}
+            addToCart={addToCart}
+            buyGame={buyGame}
           />
           <GameDetailDescription description={description} />
         </InfoDescriptionContainer>

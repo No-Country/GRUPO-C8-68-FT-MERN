@@ -6,7 +6,13 @@ import { useNavigate } from 'react-router-dom'
 import Login from '../Components/login/Login'
 import { useDispatch } from 'react-redux'
 import { login } from '../store/slices/user.slice'
-// import { redirect } from 'react-router-dom'
+import { setCartGlobal } from '../store/slices/cart.slice'
+
+const getCart = (token) => {
+  return axios.post('https://grupo-c8-68-ft-mern-production.up.railway.app/cart/get', {
+    token
+  });
+}
 
 const LoginPage = () => {
   const navigate = useNavigate()
@@ -28,7 +34,10 @@ const LoginPage = () => {
               token: res.data.token,
             })
           )
-          navigate('/')
+          getCart(res.data.token).then(({data}) => {
+            dispatch(setCartGlobal(data[0].cart))
+            navigate('/')
+          })
         }
       })
       .catch((err) =>
