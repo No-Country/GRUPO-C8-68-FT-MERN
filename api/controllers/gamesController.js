@@ -49,10 +49,10 @@ const games = async (req, res) => {
     const games = []
     const prices = []
 
-    for (let i = 0; i < results.length; i++) {
-      const price = await getPrice(results[i].name)
-      prices.push(Number(price))
-    }
+    // for (let i = 0; i < results.length; i++) {
+    //   const price = await getPrice(results[i].name)
+    //   prices.push(Number(price))
+    // }
 
     results.forEach((e, i) => {
       if (e.platforms) {
@@ -72,7 +72,7 @@ const games = async (req, res) => {
 
       if (e.platforms.length > 0)
         games.push({
-          price: prices[i],
+          price: (Math.random() * 60 + 10).toFixed(2), // prices[i],
           id: e.id,
           name: e.name,
           background_image: e.background_image,

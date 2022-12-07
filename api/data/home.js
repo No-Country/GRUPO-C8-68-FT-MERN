@@ -1,5 +1,5 @@
 const data = {
-  bestsellers: [
+  bestSellers: [
     {
       id: 326243,
       name: 'Elden Ring',
