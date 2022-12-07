@@ -454,6 +454,7 @@ export const SearchGamesContainer = styled.div`
     margin: 0 auto;
   }
   span {
+    position: relative;
     max-width: 360px;
     display: flex;
     flex-direction: column;
@@ -476,10 +477,12 @@ export const SearchGamesContainer = styled.div`
       }
     }
     input {
+      ::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration {
+          display: none;
+      }
       pointer-events: all;
       box-sizing: border-box;
       margin: 10px 0;
-      width: 100%;
       padding: 1.2rem 1.2rem;
       color: white;
       border: none;
@@ -492,14 +495,6 @@ export const SearchGamesContainer = styled.div`
       :focus {
         outline: 1px solid #fff6;
       }
-      ::-webkit-search-cancel-button{
-        -webkit-appearance: none;
-        height: 20px;
-        width: 20px;
-        :hover {
-          cursor: pointer;
-        }
-      }
       @media (min-width: 600px) {
         font-size: 20px;
       }
@@ -508,41 +503,20 @@ export const SearchGamesContainer = styled.div`
         color: #9C9797;
         position: absolute;
         left: 240px;
-        width: 48.5%;
       }
     }
-    .errase__button {
-      pointer-events:none;
+    svg {
+      pointer-events: all;
+      color: #9C9797;
+      width: 25px;
+      height: 25px;
       position: absolute;
-      right: 14px;
-      bottom: 26px;
-      height: 20px;
-      width: 20px;
+      z-index: 50;
+      transform: translateY(-50%);
+      transition: transform .1s ease;
       :hover {
-        ::after {
-          background-color: white;
-        }
-        ::before {
-          background-color: white;
-        }
-      }
-      ::after {
-        content: '';
-        position: absolute;
-        height: 15px;
-        width: 4px;
-        border-radius: 2px;
-        background-color: #9C9797;
-        transform: rotate(45deg);
-      }
-      ::before {
-        content: '';
-        position: absolute;
-        height: 15px;
-        width: 4px;
-        border-radius: 2px;
-        background-color: #9C9797;
-        transform: rotate(-45deg);
+        cursor: pointer;
+        transform: scale(1.04) translateY(-48%);
       }
     }
   }
