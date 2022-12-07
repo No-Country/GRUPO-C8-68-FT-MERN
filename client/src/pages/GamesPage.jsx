@@ -15,7 +15,6 @@ import { Spinner } from '../Components/spinner/spinner'
 import { useSelector } from 'react-redux'
 
 const GamesPage = () => {
-
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
 
   //! Se obtienen todos los juegos de la BD
@@ -24,7 +23,7 @@ const GamesPage = () => {
   const [loading, setLoading] = useState(true)
 
   const [search, setSearch] = useState('')
-  const [page, setPage] = useState(8)
+  const [page, setPage] = useState(1)
   const [pagesLength, setPagesLength] = useState(20)
   const gamesPerPage = 15
   const [gamesToShow, setGamesToShow] = useState(allGames)
@@ -33,7 +32,8 @@ const GamesPage = () => {
   const finalElement = gamesPerPage
 
   useEffect(() => {
-    const URL = 'https://grupo-c8-68-ft-mern-production.up.railway.app/games?page=' +
+    const URL =
+      'https://grupo-c8-68-ft-mern-production.up.railway.app/games?page=' +
       page +
       (search ? '&search=' + search : '')
     console.log('URL', URL)
