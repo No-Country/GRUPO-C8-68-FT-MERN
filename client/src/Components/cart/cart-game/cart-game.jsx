@@ -6,21 +6,21 @@ import {
 } from './styles'
 import { AiFillDelete } from "react-icons/ai";
 
-const CartGame = () => {
+const CartGame = ({img, title, price, removeItem}) => {
   return (
     <CartGameContainer>
       <CartGameLeft>
         <img
-          src="https://media.rawg.io/media/games/470/470fb8435cdea25bda1126e0b8e0a3b0.jpg"
-          alt=""
+          src={img}
+          alt={title}
         />
       </CartGameLeft>
       <CartGameCenter>
-        <p>Title del juego </p>
+        <p>{title}</p>
       </CartGameCenter>
       <CartGameRight>
-        <span><AiFillDelete size={"25px"}/></span>
-        <p>$300.99</p>
+        <span onClick={removeItem}><AiFillDelete size={"25px"}/></span>
+        <p>$ {price}</p>
       </CartGameRight>
     </CartGameContainer>
   )

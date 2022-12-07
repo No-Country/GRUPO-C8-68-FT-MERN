@@ -1,28 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
-import getToken from '../../utils/getToken'
-import { useSelector } from 'react-redux'
-import axios from 'axios'
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: null,
+  initialState: {
+    cart: [],
+  },
   reducers: {
-    setCartGlobal: (state, action) => action.payload,
+    setCartGlobal: (state, action) => {
+      state.cart = action.payload
+    },
+    addToCart: (state, action) => {
+      const itemInCart = state.cart.find((item) => item === action.payload);
+      if (!itemInCart) {
+        state.cart.push(action.payload);
+      }
+    },
+    removeItem: (state, action) => {
+      const removeItem = state.cart.filter((item) => item !== action.payload);
+      state.cart = removeItem;
+  },
   },
 })
-export const { setCartGlobal } = cartSlice.actions
+export const { addToCart, removeItem, setCartGlobal } = cartSlice.actions
 
 export default cartSlice.reducer
-
-export const getAllProductsCart = () => (dispatch) => {
-  const token = getToken()
-  const URL = 'https://grupo-c8-68-ft-mern-production.up.railway.app/cart/get'
-  if (token)
-    return axios
-      .post(URL, getToken())
-      .then((res) => {
-        console.log('then cart slice', res.data)
-        dispatch(setCartGlobal(res.data))
-      })
-      .catch((err) => console.log('error catch en car slice', err))
-}
