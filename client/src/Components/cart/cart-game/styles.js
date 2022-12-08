@@ -58,6 +58,11 @@ line-height: 30px;
 color: #000000;
 }
 span{
+    cursor: pointer;
     color: #000000;
+    transition: color .2s ease;
+    :hover {
+        color: red
+    }
 }
 `

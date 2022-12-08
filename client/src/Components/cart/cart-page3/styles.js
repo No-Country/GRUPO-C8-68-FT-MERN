@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const CartPage3Container = styled.div`
+padding-top: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;

@@ -23,7 +23,6 @@ export const DefaultNavbar = () => {
 
   const navigate = useNavigate()
 
-  
   return (
     <Header>
       <Nav>

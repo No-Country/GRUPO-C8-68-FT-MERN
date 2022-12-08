@@ -42,7 +42,6 @@ const CartPage1 = ({ games, removeItem, total }) => {
             </CartPage1Step>
           )
           : <CartPage1Step>
-              
               <HiMinus size={'40px'} />
               <Text style={{ fontWeight: 'bold' }}>Cart</Text>
               <HiMinus size={'40px'} />
