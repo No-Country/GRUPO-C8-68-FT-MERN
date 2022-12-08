@@ -37,7 +37,7 @@ const CartPage3 = ({ email, payCart }) => {
 
       <CartPage3Detail>
         <p>Tu correo registrado es {email}</p>
-        <button onClick={payCart}>Finalizar Compra</button>
+        <button onClick={payCart}>Finish purchase</button>
       </CartPage3Detail>
     </CartPage3Container>
   )
