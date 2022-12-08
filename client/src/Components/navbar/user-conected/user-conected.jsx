@@ -28,24 +28,31 @@ export const UserConected = () => {
         </li>
         <li>
           <Link style={
-            (matches)
+            (matches) 
             ? {
               width: '240px',
               border: '2px solid black',
               borderRadius: '15px',
               padding: '10px'
-              }
-              : null
-            } to={'/'}>
+            }
+            : {
+              width: '240px'
+            }
+          } to={'/'}>
             <FiUserCheck size="30px" /><p style={
               (matches)
               ? {
-              maxWidth: '175px',
-              overflow: 'hidden',
-              whiteSpace: 'hidden',
-              textOverflow: 'ellipsis'
+                maxWidth: '175px',
+                overflow: 'hidden',
+                whiteSpace: 'hidden',
+                textOverflow: 'ellipsis'
               }
-              : null
+              : {
+                maxWidth: '175px',
+                overflow: 'hidden',
+                whiteSpace: 'hidden',
+                textOverflow: 'ellipsis'
+              }
             } >{email}</p>
           </Link>
         </li>

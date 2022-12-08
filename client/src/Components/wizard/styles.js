@@ -2,11 +2,13 @@ import styled from 'styled-components'
 
 export const WizardContainer = styled.div`
 width: 80vw;
+min-height: 50vh;
 margin: 0 auto;
+padding: 20px 0;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
+justify-content: space-between;
 background: #4B5B62;
 border: 1px solid #fff6;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -17,8 +19,8 @@ div{
 
 `
 export const WizardButton = styled.button`
-height: 40px;
-width: 90px;
+  height: 40px;
+  width: 90px;
   margin: 6px;
   font-size: 16px;
   padding: 0 10px;

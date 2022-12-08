@@ -24,7 +24,6 @@ display: flex;
 flex-direction: column;
 
 `
-
 export const CartPage1Right = styled.div`
 width: 40%;
 height: 100%;
@@ -56,9 +55,9 @@ span{
     font-size: 24px;
     font-weight: bold;
     color: black;
+    margin: 0 10px;
 }
 p{
-    margin-left: 10px;
     font-size: 24px;
 }
 `
