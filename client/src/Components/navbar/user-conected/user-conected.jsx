@@ -22,7 +22,7 @@ export const UserConected = () => {
     <li>
       <ul>
         <li>
-          <Link onClick={() => dispatch(logout())} to='/'>
+          <Link onClick={() => (dispatch(logout()), dispatch(setCartGlobal([])))} to='/'>
             <IoLogOutOutline size="30px" /> Log out
           </Link>
         </li>
