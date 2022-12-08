@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const CartPage2Container = styled.div`
+padding-top: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-
 `
 export const CartPage2Step = styled.div`
 display: flex;
@@ -23,9 +23,9 @@ span{
     font-size: 24px;
     font-weight: bold;
     color: black;
+    margin: 0 10px;
 }
 p{
-    margin-left: 10px;
     font-size: 24px;
 }
 `

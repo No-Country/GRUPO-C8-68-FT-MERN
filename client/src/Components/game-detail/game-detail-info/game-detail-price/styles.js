@@ -28,6 +28,7 @@ p{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 button{
+    cursor: pointer;
     background: #00ADEF;
     border-radius: 20px;
     border: none;
@@ -45,6 +46,9 @@ button{
         padding: 5px 0;
         white-space: nowrap;
     }
-        
+    transition: filter .2s ease;
+    :hover {
+        filter: brightness(.8);
+    }
 }
 `
