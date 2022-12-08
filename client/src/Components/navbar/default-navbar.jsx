@@ -6,24 +6,26 @@ import { IoGameControllerOutline, IoLogInOutline } from 'react-icons/io5'
 import logo from '../../assets/LogoNCGames.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { UserConected } from './user-conected/user-conected';
+import { UserConected } from './user-conected/user-conected'
 import { useSelector } from 'react-redux'
 
 export const DefaultNavbar = () => {
-  const [menuStatus, setMenuStatus] = useState('hidden');
+  const [menuStatus, setMenuStatus] = useState('hidden')
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
+  const cart = useSelector((state) => state.cart.cart)
+
+  console.log('cart', cart)
 
   const handleMenuStatus = () => {
     if (menuStatus === 'hidden') {
       setMenuStatus('visible')
     } else {
       setMenuStatus('hidden')
-    } 
+    }
   }
 
   const navigate = useNavigate()
 
-  
   return (
     <Header>
       <Nav>
@@ -35,43 +37,56 @@ export const DefaultNavbar = () => {
             alt="logo"
           />
         </HeaderLogo>
-        
+
         <HeaderLinks>
           <li onClick={handleMenuStatus} className="hamburger__btn">
             <HiMenuAlt3 size="60px" />
           </li>
           <li className={`hamburger__menu ${menuStatus}`}>
-            <ul className='hamburger__menu-links'>
+            <ul className="hamburger__menu-links">
               <li>
-              <Link onClick={handleMenuStatus} to={'/games'}>
-                  <IoGameControllerOutline size="30px" />Games
-              </Link>
+                <Link onClick={handleMenuStatus} to={'/games'}>
+                  <IoGameControllerOutline size="30px" />
+                  Games
+                </Link>
               </li>
               <li>
-              <Link onClick={handleMenuStatus} to={'/cart'}>
-                  <BsCart size="30px" />Cart
-                 </Link>
+                <Link onClick={handleMenuStatus} to={'/cart'}>
+                  <span
+                    style={{
+                      background: 'black',
+                      color: 'white',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {cart.length}
+                  </span>
+                  <BsCart size="30px" />
+                  Cart
+                </Link>
               </li>
-              {
-                isLoggedIn && 
-                <UserConected/>}
-              {
-                !isLoggedIn &&
+              {isLoggedIn && <UserConected />}
+              {!isLoggedIn && (
                 <li>
                   <ul>
                     <li>
                       <Link onClick={handleMenuStatus} to={'/login'}>
-                        <IoLogInOutline size="30px" />Log in
+                        <IoLogInOutline size="30px" />
+                        Log in
                       </Link>
                     </li>
                     <li>
                       <Link onClick={handleMenuStatus} to={'/register'}>
-                        <AiOutlineUserAdd size="30px" />Register
+                        <AiOutlineUserAdd size="30px" />
+                        Register
                       </Link>
                     </li>
                   </ul>
                 </li>
-              }
+              )}
             </ul>
           </li>
         </HeaderLinks>
