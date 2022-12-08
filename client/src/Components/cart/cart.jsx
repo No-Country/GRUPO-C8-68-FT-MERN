@@ -52,7 +52,7 @@ export const Cart = () => {
   const handlePayCart = () => {
     payCart(token, cart).then(() => {
       dispatch(setCartGlobal([]))
-      navigate('/home')
+      navigate('/')
     })
   }
   
