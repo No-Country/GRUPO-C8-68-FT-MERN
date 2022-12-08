@@ -11,16 +11,20 @@ import {
 export const Card = ({ title, price, img, id}) => {
  
   return (
-    <Link style={{"textDecoration":"none"}} to={`/detail/${id}`}>
-          <CardContainer>
-      <CardTop>
-        <img src={img} alt=''/>
-      </CardTop>
-      <CardBottom>
-        <CardTitle>{title}</CardTitle>
-        <PlatformsIcons/>
-        <CardPrice>${price}</CardPrice>
-      </CardBottom>
+    <Link style={{
+      textDecoration: "none",
+      width: "90%",
+      maxWidth: "270px"
+      }} to={`/detail/${id}`}>
+      <CardContainer>
+        <CardTop>
+          <img src={img} alt=''/>
+        </CardTop>
+        <CardBottom>
+          <CardTitle>{title}</CardTitle>
+          <PlatformsIcons/>
+          <CardPrice>${price}</CardPrice>
+        </CardBottom>
     </CardContainer>
     </Link>
   );

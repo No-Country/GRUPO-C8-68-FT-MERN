@@ -2,15 +2,15 @@ import styled from 'styled-components'
 
 export const CardContainer = styled.div`
   width: 90%;
-  max-width: 300px;
+  max-width: 270px;
   aspect-ratio: 3/4;
   background: #FFFFFF;
-  border-radius: 20px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  `
+`
 export const CardTop = styled.div`
   height: 60%;
   width: 100%;
